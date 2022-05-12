@@ -166,3 +166,7 @@ C:\Users\Johor\Desktop\Faceless-master\Faceless-master\Warrior\obj\Debug\Assembl
 C:\Users\Johor\Desktop\Faceless-master\Faceless-master\Warrior\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\Johor\Desktop\Faceless-master\Faceless-master\Warrior\obj\Debug\Assembly-CSharp.dll
 C:\Users\Johor\Desktop\Faceless-master\Faceless-master\Warrior\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\obj\Debug\Assembly-CSharp.dll
+C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\obj\Debug\Assembly-CSharp.pdb

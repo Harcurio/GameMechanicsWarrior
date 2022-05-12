@@ -5,6 +5,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(JumpMovement))]
+[RequireComponent(typeof(AttackMovement))]
 
 [RequireComponent(typeof(AttackTrigger))]
 [RequireComponent(typeof(CatchEdgeMovement))]
@@ -16,6 +17,8 @@ using UnityEngine;
 [RequireComponent(typeof(LifeManager))]
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(RotateToAliginWithFloor))]
+
+
 [RequireComponent(typeof(NewRules))]
 [RequireComponent(typeof(Variable))]
 
@@ -31,45 +34,27 @@ public class NewBehaviourScript : MonoBehaviour {
 
     public WalkMovement movement;
     public JumpMovement jumpMovement;
+    public AttackMovement attackMovement;
+
+
     public NewRules theRules = new NewRules();
     //public Variable bar;  //this will encapsulate all the other values
 
 
     public List<Variable> varList = new List<Variable>();
 
-
-   
-
-
     public int playerpoints { get; set; }
 
 
-    /*
-    public float knockbackStrength { get; set; }
-    public float knockBackLength { get; set; }
-    public float walkSpeed { get; set; }
-    public float knockbackTimeCount { get; set; }
-    public bool knockFromRight { get; set; }
-    public float desiredWalkDirection { get; set; }  //desiredWalkDirection
-    public bool knockbackFinished { get; set; }
-    */
-
-    //float walkSpeed = 50;
-    //float knockbackTimeCount
-    //bool knockFromRight
-    //float desiredWalkDirectio
-    //public bool knockbackFinished { get; set; }
 
 
     protected void Awake()
     {
 
 
-
-        //this.varList[2].valueInt = 650;
-
         movement = GetComponent<WalkMovement>();
         jumpMovement = GetComponent<JumpMovement>();
+        attackMovement = GetComponent<AttackMovement>();
 
         //Rules made for the new behaviour?
        
@@ -82,20 +67,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         this.movement = movement;
 
-
-        //se va a eliminar este bloque por que la lista esta haciendo el mismo trabajo
-        /*
-        this.knockbackStrength = movement.knockbackStrength;
-        this.knockBackLength = movement.knockBackLength;
-        this.walkSpeed = movement.walkSpeed;
-        this.knockbackTimeCount = movement.knockbackTimeCount;
-        this.knockFromRight = movement.knockFromRight;
-        this.desiredWalkDirection = movement.desiredWalkDirection;
-        this.knockbackFinished = movement.knockbackFinished;
-
-        */
-
-
+        //public variables from WalkMovement
         Variable bar0 = new Variable("knockbackStrength", movement.knockbackStrength);
         Variable bar1 = new Variable("knockBackLength", movement.knockBackLength);
         Variable bar2 = new Variable("walkSpeed", movement.walkSpeed);
@@ -103,6 +75,20 @@ public class NewBehaviourScript : MonoBehaviour {
         Variable bar4 = new Variable("knockFromRight", movement.knockFromRight);
         Variable bar5 = new Variable("desiredWalkDirection", movement.desiredWalkDirection);
         Variable bar6 = new Variable("knockbackFinished", movement.knockbackFinished);
+        //public variables from JumpMovement
+        //Variable bar7 = new Variable("canDoubleJump", jumpMovement.canDoubleJump);
+        /*
+         for more changes in JumpMovement we need to use the transform Variables. given that speed jump
+         or double Jump Duration are privated functions
+         */
+        //public variables from AttackMovement
+        //Variable bar8 = new Variable("isAttacking", attackMovement.isAttacking);
+        //Variable bar9 = new Variable("AttackMovementEnabled", attackMovement.AttackMovementEnabled);
+        //Variable bar10 = new Variable("AttackCount", attackMovement.attackCount);
+        //public variables TurnArround
+        //Variable bar11 = new Variable("AttackCount", attackMovement.attackCount);
+
+
 
 
         varList.Add(bar0);
@@ -135,8 +121,6 @@ public class NewBehaviourScript : MonoBehaviour {
     void Start () {
 
 
-        Debug.Log("entra al start de newBehaviour");
-
 
 
     }
@@ -146,14 +130,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
 
 
-        /*
-        this.movement.knockBackLength = this.knockBackLength;
-        
-        this.movement.knockbackTimeCount = this.knockbackTimeCount;
-        this.movement.knockFromRight = this.knockFromRight;
-        this.movement.desiredWalkDirection = this.desiredWalkDirection;
-        this.movement.knockbackFinished = this.knockbackFinished;
-        */
+
     }
 
 

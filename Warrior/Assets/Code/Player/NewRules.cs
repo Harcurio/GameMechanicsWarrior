@@ -68,7 +68,7 @@ public class NewRules : MonoBehaviour {
           
             if (theCondition.leesThan(rdm, toModify.valueFloat)) // esta entrando siempre... por que random menor a valores
             {
-                toModify.valueFloat = 325f;
+                toModify.valueFloat = 30f;
 
                 //more than 1 modifications?
 
@@ -84,7 +84,7 @@ public class NewRules : MonoBehaviour {
         }
 
 
-        Debug.Log(NewVar[2].valueFloat);
+        //Debug.Log(NewVar[2].valueFloat);
         return NewVar;
     }
 
@@ -104,19 +104,7 @@ public class NewRules : MonoBehaviour {
     {
 
         Variable x;
-
-        public bool leesThan(int a, int b)
-        {
-            if(a < b)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        
-        public bool leesThan(float a, float b)
+        public bool leesThan(float a, float b) //this is as an example right now...
         {
             if (a < b)
             {
@@ -125,36 +113,104 @@ public class NewRules : MonoBehaviour {
             return false;
         }
 
-
-        public bool bigerThan(int a, int b)
+        public bool leesThan(Variable a, Variable b)
         {
 
-            if (a > b)
+            if (a.isINT() && b.isINT())
             {
-                return true;
+                if (a.valueInt < b.valueInt)
+                {
+                    return true;
+                }
+
+
             }
+            else if (a.isFLOAT() && b.isFLOAT())
+            {
+                if(a.valueFloat < b.valueFloat)
+                {
+                    return true;
+                }
+
+
+            }
+            else if (a.isBOOL() && b.isBOOL())
+            {
+
+
+
+
+            }//we can add more comparisons here 
+
+            return false;
+        }
+
+
+        public bool bigerThan(Variable a, Variable b)
+        {
+
+            if (a.isINT() && b.isINT())
+            {
+                if (a.valueInt > b.valueInt)
+                {
+                    return true;
+                }
+
+
+            }
+            else if (a.isFLOAT() && b.isFLOAT())
+            {
+                if (a.valueFloat > b.valueFloat)
+                {
+                    return true;
+                }
+
+
+            }
+            else if (a.isBOOL() && b.isBOOL())
+            {
+
+
+
+
+            }//we can add more comparisons here 
 
             return false;
 
         }
 
-        public bool bigerThan(float a, float b)
+
+
+        public bool equalThan(Variable a, Variable b)
         {
 
-            if (a > b)
+            if (a.isINT() && b.isINT())
             {
-                return true;
+                if (a.valueInt == b.valueInt)
+                {
+                    return true;
+                }
+
+
             }
+            else if (a.isFLOAT() && b.isFLOAT())
+            {
+                if (a.valueFloat == b.valueFloat)
+                {
+                    return true;
+                }
+
+
+            }
+            else if (a.isBOOL() && b.isBOOL())
+            {
+
+                //direct change here.
+
+
+            }//we can add more comparisons here 
 
             return false;
-
-        }
-
-
-        public bool equalThan()
-        {
-
-            return true;
         }
 
         public bool equalToFalse()
