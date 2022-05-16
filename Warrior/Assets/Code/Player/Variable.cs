@@ -26,6 +26,11 @@ public class Variable {
     {
         this.nameVariable = nameVariable;
         this.isInt = true;
+        unsafe
+        {
+            this.varInt = &valueInt;
+        }
+        
         //this.valueInt = valueInt;
     }
 
@@ -33,6 +38,10 @@ public class Variable {
     {
         this.nameVariable = nameVariable;
         this.isFloat = true;
+        unsafe
+        {
+            this.varFloat = &valueFloat;       
+        }
         //this.valueFloat = valueFloat;
     }
 
@@ -40,6 +49,10 @@ public class Variable {
     {
         this.nameVariable = nameVariable;
         this.isBool = true;
+        unsafe
+        {
+            this.varBool = &Valuebool;
+        }
         //this.valueBool = Valuebool;
     }
 
