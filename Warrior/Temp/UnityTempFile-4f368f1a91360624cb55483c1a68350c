@@ -1,0 +1,271 @@
+-debug
+-target:library
+-nowarn:0169
+-langversion:4
+-out:Temp/Assembly-CSharp.dll
+-nostdlib
+-unsafe
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.AccessibilityModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.AnimationModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.AssetBundleModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.AudioModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.BaselibModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.ClothModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.CloudWebServicesModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterInputModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.CoreModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.CrashReportingModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.DirectorModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.FacebookModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.GameCenterModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.GridModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.HotReloadModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.IMGUIModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.ImageConversionModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.InputModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.PhysicsModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.Physics2DModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.SpatialTrackingModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.SubstanceModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.TLSModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.TerrainModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.TextRenderingModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.TilemapModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.TimelineModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UIModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UIElementsModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UNETModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UmbraModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UnityConnectModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.VRModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.VehiclesModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.VideoModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.WebModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.WindModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEngine/UnityEngine.XRModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/UnityEditor.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\Managed/Unity.Locator.dll"
+-r:Library/ScriptAssemblies/UnityEditor.StandardEvents.dll
+-r:Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
+-r:"C:/Program Files/Unity/Hub/Editor/2018.1.0f2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.1.0f2/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.1.0f2/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.1.0f2/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.1.0f2/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.1.0f2/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.1.0f2/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
+-r:C:/Users/Johor/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll
+-r:C:/Users/Johor/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll
+-r:C:/Users/Johor/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\MonoBleedingEdge\lib\mono\unity\mscorlib.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Core.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Runtime.Serialization.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Xml.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Xml.Linq.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.Lang.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\MonoBleedingEdge\lib\mono\unity\Boo.Lang.dll"
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_4_OR_NEWER
+-define:UNITY_5_5_OR_NEWER
+-define:UNITY_5_6_OR_NEWER
+-define:UNITY_2017_1_OR_NEWER
+-define:UNITY_2017_2_OR_NEWER
+-define:UNITY_2017_3_OR_NEWER
+-define:UNITY_2018_1_OR_NEWER
+-define:UNITY_2018_1_0
+-define:UNITY_2018_1
+-define:UNITY_2018
+-define:PLATFORM_ARCH_64
+-define:UNITY_64
+-define:UNITY_ANALYTICS
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_SPRITERENDERER_FLIPPING
+-define:ENABLE_SPRITES
+-define:ENABLE_GRID
+-define:ENABLE_TILEMAP
+-define:ENABLE_TERRAIN
+-define:ENABLE_RAKNET
+-define:ENABLE_DIRECTOR
+-define:ENABLE_UNET
+-define:ENABLE_LZMA
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES_COLLAB
+-define:ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS
+-define:ENABLE_CLOUD_SERVICES_ADS
+-define:ENABLE_CLOUD_HUB
+-define:ENABLE_CLOUD_PROJECT_ID
+-define:ENABLE_CLOUD_SERVICES_USE_WEBREQUEST
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_EDITOR_HUB
+-define:ENABLE_EDITOR_HUB_LICENSE
+-define:ENABLE_WEBSOCKET_CLIENT
+-define:ENABLE_DIRECTOR_AUDIO
+-define:ENABLE_DIRECTOR_TEXTURE
+-define:ENABLE_TIMELINE
+-define:ENABLE_EDITOR_METRICS
+-define:ENABLE_EDITOR_METRICS_CACHING
+-define:ENABLE_MANAGED_JOBS
+-define:ENABLE_MANAGED_TRANSFORM_JOBS
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:ENABLE_MONO_BDWGC
+-define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
+-define:INCLUDE_PUBNUB
+-define:ENABLE_PLAYMODE_TESTS_RUNNER
+-define:ENABLE_VIDEO
+-define:ENABLE_PACKMAN
+-define:ENABLE_CUSTOM_RENDER_TEXTURE
+-define:ENABLE_LOCALIZATION
+-define:PLATFORM_STANDALONE_WIN
+-define:PLATFORM_STANDALONE
+-define:UNITY_STANDALONE_WIN
+-define:UNITY_STANDALONE
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_MOVIES
+-define:ENABLE_NETWORK
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_UNITYWEBREQUEST
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_PURCHASING
+-define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
+-define:ENABLE_OUT_OF_PROCESS_CRASH_HANDLER
+-define:ENABLE_EVENT_QUEUE
+-define:ENABLE_CLUSTERINPUT
+-define:ENABLE_VR
+-define:ENABLE_AR
+-define:ENABLE_WEBSOCKET_HOST
+-define:ENABLE_MONO
+-define:NET_2_0_SUBSET
+-define:ENABLE_PROFILER
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_WIN
+-define:ENABLE_UNITY_COLLECTIONS_CHECKS
+-define:UNITY_TEAM_LICENSE
+-define:ENABLE_VSTU
+Assets/Animation/CharacterAnimatorController.cs
+Assets/Code/Camera/BackgroundFollowsPlayer.cs
+Assets/Code/Camera/CameraFollow.cs
+Assets/Code/Camera/ParallaxBackground.cs
+Assets/Code/Camera/ScreenShake.cs
+Assets/Code/Collectable/AudioManager.cs
+Assets/Code/Collectable/CollectableManager.cs
+Assets/Code/Collectable/HeartController.cs
+Assets/Code/Controllers/Spawner.cs
+Assets/Code/Death/DeathEffect.cs
+Assets/Code/Death/DeathEffectManager.cs
+Assets/Code/Death/DestroyOutOfBounds.cs
+Assets/Code/Death/KillOnContactWith.cs
+Assets/Code/EasingFunctions.cs
+Assets/Code/Enemy/Bat/BatController.cs
+Assets/Code/Enemy/Death/DeathMovement.cs
+Assets/Code/Enemy/Death/DemonHunter.cs
+Assets/Code/Enemy/Death/ScytheController.cs
+Assets/Code/Enemy/Death2/DeathReaperController.cs
+Assets/Code/Enemy/Death2/LaserController.cs
+Assets/Code/Enemy/Dragon/DragonController.cs
+Assets/Code/Enemy/Dragon/DragonWalkController.cs
+Assets/Code/Enemy/Dragon/EnterTerritory.cs
+Assets/Code/Enemy/Elf/ArrowController.cs
+Assets/Code/Enemy/Elf/BowMovement.cs
+Assets/Code/Enemy/Elf/ElfController.cs
+Assets/Code/Enemy/Elf/ElfKnightController.cs
+Assets/Code/Enemy/Elf/RightArmMovement.cs
+Assets/Code/Enemy/EnemyAttackMovement.cs
+Assets/Code/Enemy/EnemyHealthManager.cs
+Assets/Code/Enemy/FollowPlayer.cs
+Assets/Code/Enemy/Golem/GolemController.cs
+Assets/Code/Enemy/Merman/MermanController.cs
+"Assets/Code/Enemy/Mountain Troll/MountainTrollController.cs"
+Assets/Code/Enemy/Orc/OrcController.cs
+Assets/Code/Enemy/Spider/SpiderController.cs
+"Assets/Code/Enemy/Troll Champion/TrollChampionController.cs"
+Assets/Code/Enemy/Trolls/TrollGreenController.cs
+Assets/Code/Enemy/Trolls/TrollOrangeController.cs
+"Assets/Code/Enemy/Wizard Goblin/WizardGoblinController.cs"
+Assets/Code/Environment/BumpingPlatform.cs
+Assets/Code/Environment/FallingPlatform.cs
+Assets/Code/Environment/Level1End.cs
+Assets/Code/Environment/LevelInitialization.cs
+Assets/Code/Environment/MovingPlatform.cs
+Assets/Code/Environment/OnPlayerFallScript.cs
+Assets/Code/Environment/OnTriggerLoadLevel.cs
+Assets/Code/Movement/AttackMovement.cs
+Assets/Code/Movement/BatMovement.cs
+Assets/Code/Movement/CrouchMovement.cs
+Assets/Code/Movement/FloorDetector.cs
+Assets/Code/Movement/JumpMovement.cs
+Assets/Code/Movement/RotateEnemy.cs
+Assets/Code/Movement/TurnAround.cs
+Assets/Code/Movement/WalkMovement.cs
+Assets/Code/Movement/WanderWalkController.cs
+Assets/Code/Player/AttackTrigger.cs
+Assets/Code/Player/CatchEdgeMovement.cs
+Assets/Code/Player/Conditions.cs
+Assets/Code/Player/DashMovement.cs
+Assets/Code/Player/Effect.cs
+Assets/Code/Player/HealthManager.cs
+Assets/Code/Player/HurtEnemyOnContact.cs
+Assets/Code/Player/HurtPlayerOnContact.cs
+Assets/Code/Player/KnockbackOnContact.cs
+Assets/Code/Player/LifeManager.cs
+Assets/Code/Player/NewBehaviourScript.cs
+Assets/Code/Player/NewRules.cs
+Assets/Code/Player/PlayerController.cs
+Assets/Code/Player/RotateToAliginWithFloor.cs
+Assets/Code/Player/Variable.cs
+Assets/Code/UI/EnemyHealthBar.cs
+Assets/Code/UI/HealthBar.cs
+Assets/Code/UI/HealthCounter.cs
+Assets/Code/UI/MainMenu.cs
+Assets/Code/UI/PauseMenu.cs
+Assets/Code/UI/ScoreManager.cs
+Assets/Code/Utils/LayerMaskExtension.cs
+Assets/ObstacleController.cs
+Assets/Shaders/Pixelation/Example/Scripts/ImageEffectBase.cs
+Assets/Shaders/Pixelation/Example/Scripts/Plane.cs
+Assets/Shaders/Pixelation/Example/Scripts/PointLight.cs
+Assets/Shaders/Pixelation/Scripts/Chunky.cs
+Assets/Shaders/Pixelation/Scripts/Pixelation.cs
+Assets/Tilesets/UnderwaterFantasy/Scripts/Done_BGScroller.cs
+Assets/Tilesets/UnderwaterFantasy/Scripts/Perspective2DSortMode.cs
+@Assets\smcs.rsp
+-lib:"C:\Program Files\Unity\Hub\Editor\2018.1.0f2\Editor\Data\MonoBleedingEdge\lib\mono\unity"

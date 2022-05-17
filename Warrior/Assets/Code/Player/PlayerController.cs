@@ -27,18 +27,33 @@ public class PlayerController : MonoBehaviour
     {
         wm = GetComponent<WalkMovement>();
         //walkMovement = GetComponent<NewBehaviourScript>();
-        
+        wm.walkSpeed = 3f;
 
         walkMovement =  new NewBehaviourScript(wm);
+        //float velocity = 650f;
 
-        walkMovement.varList[2].valueFloat = 650;
+        unsafe
+        {
+            *walkMovement.varList[2].varFloat = 650f; 
+        }
+        
         Debug.Log("speed of the variable");
-        Debug.Log(walkMovement.varList[2].valueFloat);
+        Debug.Log(wm.walkSpeed);
+
+
+
+        Debug.Log("list of variables");
+        unsafe
+        {
+            Debug.Log(*walkMovement.varList[2].varFloat);
+            Debug.Log(*walkMovement.varList[2].varFloat);
+        }
+  
 
 
         walkMovement.varList =  walkMovement.theRules.getRandomRule(walkMovement.varList);
         Debug.Log("speed of the variable afther new rule wink wink");
-        Debug.Log(walkMovement.varList[2].valueFloat);
+        Debug.Log(wm.walkSpeed);
 
 
 
@@ -61,32 +76,55 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl) && floorDetector.isTouchingFloor || CharacterControlDisabled && floorDetector.isTouchingFloor)
         {
-            walkMovement.varList[5].valueFloat = 0;
+            unsafe
+            {
+                *walkMovement.varList[5].varFloat = 0;
+            }
+            
         }
 
         if((Input.GetButton("Left") && !Input.GetKey(KeyCode.LeftControl)) && 
             !CharacterControlDisabled)
         {
-           
-            walkMovement.varList[5].valueFloat = Input.GetAxis("Left");
-            walkMovement.movement.desiredWalkDirection = walkMovement.varList[5].valueFloat;
+            unsafe
+            {
+                *walkMovement.varList[5].varFloat = Input.GetAxis("Left");
+                walkMovement.movement.desiredWalkDirection = *walkMovement.varList[5].varFloat;
+            }
+            
+            
         }
         else if(Input.GetButtonUp("Left"))
         {
-            walkMovement.varList[5].valueFloat = 0;
-            walkMovement.movement.desiredWalkDirection = walkMovement.varList[5].valueFloat;
+            unsafe
+            {
+                *walkMovement.varList[5].varFloat = 0;
+                walkMovement.movement.desiredWalkDirection = *walkMovement.varList[5].varFloat;
+            }
+            
+            
         }
 
         if ((Input.GetButton("Right") && !Input.GetKey(KeyCode.LeftControl)) && 
             !CharacterControlDisabled)
         {
-            walkMovement.varList[5].valueFloat = Input.GetAxis("Right");
-            walkMovement.movement.desiredWalkDirection = walkMovement.varList[5].valueFloat;
+            unsafe
+            {
+                *walkMovement.varList[5].varFloat = Input.GetAxis("Right");
+                walkMovement.movement.desiredWalkDirection = *walkMovement.varList[5].varFloat;
+            }
+            
+            
         }
         else if (Input.GetButtonUp("Right"))
         {
-            walkMovement.varList[5].valueFloat = 0;
-            walkMovement.movement.desiredWalkDirection = walkMovement.varList[5].valueFloat;
+            unsafe
+            {
+                *walkMovement.varList[5].varFloat = 0;
+                walkMovement.movement.desiredWalkDirection = *walkMovement.varList[5].varFloat;
+            }
+            
+            
         }
 
         /*if (Input.GetButtonDown("Attack") && !CharacterControlEnabled)

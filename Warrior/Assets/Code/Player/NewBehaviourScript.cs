@@ -102,6 +102,10 @@ public class NewBehaviourScript : MonoBehaviour {
 
         Debug.Log("nombre de la variable: ");
         Debug.Log(varList[2].nameVariable);
+        unsafe
+        {
+            Debug.Log(*varList[2].varFloat);
+        }
         
 
 

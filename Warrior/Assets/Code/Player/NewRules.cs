@@ -50,32 +50,36 @@ public class NewRules : MonoBehaviour {
         rdm = Random.Range(0f, 100f);
         if (toModify.isINT())
         {
-
-            if(theCondition.leesThan(toModify.valueInt, rd))
+            unsafe
             {
-                toModify.valueInt = 325;
 
-                //more than 1 modifications?
+                if (theCondition.leesThan(*toModify.varInt, rd))
+                {
+                    *toModify.varInt = 325;
 
-                // se hace update a la lista 
-                NewVar[2] = toModify;
+                    //more than 1 modifications?
+
+                    // se hace update a la lista 
+                    //NewVar[2] = toModify;
+                }
             }
 
         }
 
         if (toModify.isFLOAT())
         {
-          
-            if (theCondition.leesThan(rdm, toModify.valueFloat)) // esta entrando siempre... por que random menor a valores
+            unsafe
             {
-                toModify.valueFloat = 30f;
+                if (theCondition.leesThan(rdm, *toModify.varFloat)) // esta entrando siempre... por que random menor a valores
+                {
+                    *toModify.varFloat = 30f;
 
-                //more than 1 modifications?
+                    //more than 1 modifications?
 
-                // se hace update a la lista 
-                NewVar[2] = toModify;
+                    // se hace update a la lista 
+                   // NewVar[2] = toModify;
+                }
             }
-
         }
 
         if (toModify.isBOOL())
@@ -115,32 +119,35 @@ public class NewRules : MonoBehaviour {
 
         public bool leesThan(Variable a, Variable b)
         {
-
-            if (a.isINT() && b.isINT())
+            unsafe
             {
-                if (a.valueInt < b.valueInt)
+
+                if (a.isINT() && b.isINT())
                 {
-                    return true;
+                    if (*a.varInt < *b.varInt)
+                    {
+                        return true;
+                    }
+
+
                 }
-
-
-            }
-            else if (a.isFLOAT() && b.isFLOAT())
-            {
-                if(a.valueFloat < b.valueFloat)
+                else if (a.isFLOAT() && b.isFLOAT())
                 {
-                    return true;
+                    if (*a.varFloat < *b.varFloat)
+                    {
+                        return true;
+                    }
+
+
                 }
+                else if (a.isBOOL() && b.isBOOL())
+                {
 
 
+
+
+                }//we can add more comparisons here 
             }
-            else if (a.isBOOL() && b.isBOOL())
-            {
-
-
-
-
-            }//we can add more comparisons here 
 
             return false;
         }
@@ -148,33 +155,34 @@ public class NewRules : MonoBehaviour {
 
         public bool bigerThan(Variable a, Variable b)
         {
-
-            if (a.isINT() && b.isINT())
+            unsafe
             {
-                if (a.valueInt > b.valueInt)
+                if (a.isINT() && b.isINT())
                 {
-                    return true;
+                    if (*a.varInt > *b.varInt)
+                    {
+                        return true;
+                    }
+
+
                 }
-
-
-            }
-            else if (a.isFLOAT() && b.isFLOAT())
-            {
-                if (a.valueFloat > b.valueFloat)
+                else if (a.isFLOAT() && b.isFLOAT())
                 {
-                    return true;
+                    if (*a.varFloat > *b.varFloat)
+                    {
+                        return true;
+                    }
+
+
                 }
+                else if (a.isBOOL() && b.isBOOL())
+                {
 
 
+
+
+                }//we can add more comparisons here 
             }
-            else if (a.isBOOL() && b.isBOOL())
-            {
-
-
-
-
-            }//we can add more comparisons here 
-
             return false;
 
         }
@@ -183,33 +191,35 @@ public class NewRules : MonoBehaviour {
 
         public bool equalThan(Variable a, Variable b)
         {
-
-            if (a.isINT() && b.isINT())
+            unsafe
             {
-                if (a.valueInt == b.valueInt)
+
+                if (a.isINT() && b.isINT())
                 {
-                    return true;
+                    if (*a.varInt == *b.varInt)
+                    {
+                        return true;
+                    }
+
+
                 }
-
-
-            }
-            else if (a.isFLOAT() && b.isFLOAT())
-            {
-                if (a.valueFloat == b.valueFloat)
+                else if (a.isFLOAT() && b.isFLOAT())
                 {
-                    return true;
+                    if (*a.varFloat == *b.varFloat)
+                    {
+                        return true;
+                    }
+
+
                 }
+                else if (a.isBOOL() && b.isBOOL())
+                {
+
+                    //direct change here.
 
 
+                }//we can add more comparisons here 
             }
-            else if (a.isBOOL() && b.isBOOL())
-            {
-
-                //direct change here.
-
-
-            }//we can add more comparisons here 
-
             return false;
         }
 

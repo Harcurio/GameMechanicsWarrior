@@ -11,9 +11,9 @@ public class Variable {
 
     
     
-    public int valueInt; //{ get; set; }
-    public float valueFloat; //{ get; set; }
-    public bool valueBool; //{ get; set; }
+    //public int valueInt; //{ get; set; }
+    //public float valueFloat; //{ get; set; }
+    //public bool valueBool; //{ get; set; }
 
     public unsafe int* varInt;
     public unsafe float* varFloat;
@@ -40,8 +40,13 @@ public class Variable {
         this.isFloat = true;
         unsafe
         {
-            this.varFloat = &valueFloat;       
+            this.varFloat = &valueFloat;
+
+            
+            Debug.Log("value inside the class val: ");
+            Debug.Log(*this.varFloat);
         }
+        
         //this.valueFloat = valueFloat;
     }
 
