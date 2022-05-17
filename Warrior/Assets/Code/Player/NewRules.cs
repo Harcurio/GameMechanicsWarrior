@@ -71,9 +71,13 @@ public class NewRules : MonoBehaviour {
             unsafe
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (theCondition.leesThan(rdm, *toModify.varFloat)) // esta entrando siempre... por que random menor a valores
                 {
                     *toModify.varFloat = 30f;
+=======
+                toModify.valueFloat = 325f;
+>>>>>>> parent of af71274 (changes with pointers in variable class)
 =======
                 toModify.valueFloat = 325f;
 >>>>>>> parent of af71274 (changes with pointers in variable class)
@@ -137,6 +141,7 @@ public class NewRules : MonoBehaviour {
         public bool bigerThan(int a, int b)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             unsafe
             {
 
@@ -166,10 +171,27 @@ public class NewRules : MonoBehaviour {
 
                 }//we can add more comparisons here 
 =======
+=======
 
             if (a > b)
             {
                 return true;
+            }
+
+            return false;
+
+        }
+
+        public bool bigerThan(float a, float b)
+        {
+>>>>>>> parent of af71274 (changes with pointers in variable class)
+
+            if (a > b)
+            {
+                return true;
+<<<<<<< HEAD
+>>>>>>> parent of af71274 (changes with pointers in variable class)
+=======
 >>>>>>> parent of af71274 (changes with pointers in variable class)
             }
 
@@ -177,6 +199,7 @@ public class NewRules : MonoBehaviour {
 
         }
 
+<<<<<<< HEAD
         public bool bigerThan(float a, float b)
         {
 <<<<<<< HEAD
@@ -255,6 +278,13 @@ public class NewRules : MonoBehaviour {
             }
             return false;
 =======
+
+            return true;
+>>>>>>> parent of af71274 (changes with pointers in variable class)
+=======
+
+        public bool equalThan()
+        {
 
             return true;
 >>>>>>> parent of af71274 (changes with pointers in variable class)
