@@ -70,9 +70,13 @@ public class NewRules : MonoBehaviour {
         {
             unsafe
             {
+<<<<<<< HEAD
                 if (theCondition.leesThan(rdm, *toModify.varFloat)) // esta entrando siempre... por que random menor a valores
                 {
                     *toModify.varFloat = 30f;
+=======
+                toModify.valueFloat = 325f;
+>>>>>>> parent of af71274 (changes with pointers in variable class)
 
                     //more than 1 modifications?
 
@@ -88,7 +92,7 @@ public class NewRules : MonoBehaviour {
         }
 
 
-        //Debug.Log(NewVar[2].valueFloat);
+        Debug.Log(NewVar[2].valueFloat);
         return NewVar;
     }
 
@@ -108,7 +112,19 @@ public class NewRules : MonoBehaviour {
     {
 
         Variable x;
-        public bool leesThan(float a, float b) //this is as an example right now...
+
+        public bool leesThan(int a, int b)
+        {
+            if(a < b)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        
+        public bool leesThan(float a, float b)
         {
             if (a < b)
             {
@@ -117,8 +133,10 @@ public class NewRules : MonoBehaviour {
             return false;
         }
 
-        public bool leesThan(Variable a, Variable b)
+
+        public bool bigerThan(int a, int b)
         {
+<<<<<<< HEAD
             unsafe
             {
 
@@ -147,14 +165,21 @@ public class NewRules : MonoBehaviour {
 
 
                 }//we can add more comparisons here 
+=======
+
+            if (a > b)
+            {
+                return true;
+>>>>>>> parent of af71274 (changes with pointers in variable class)
             }
 
             return false;
+
         }
 
-
-        public bool bigerThan(Variable a, Variable b)
+        public bool bigerThan(float a, float b)
         {
+<<<<<<< HEAD
             unsafe
             {
                 if (a.isINT() && b.isINT())
@@ -183,14 +208,22 @@ public class NewRules : MonoBehaviour {
 
                 }//we can add more comparisons here 
             }
+=======
+
+            if (a > b)
+            {
+                return true;
+            }
+
+>>>>>>> parent of af71274 (changes with pointers in variable class)
             return false;
 
         }
 
 
-
-        public bool equalThan(Variable a, Variable b)
+        public bool equalThan()
         {
+<<<<<<< HEAD
             unsafe
             {
 
@@ -221,6 +254,10 @@ public class NewRules : MonoBehaviour {
                 }//we can add more comparisons here 
             }
             return false;
+=======
+
+            return true;
+>>>>>>> parent of af71274 (changes with pointers in variable class)
         }
 
         public bool equalToFalse()

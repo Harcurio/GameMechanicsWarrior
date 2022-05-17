@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(WalkMovement))]  // done 
-[RequireComponent(typeof(JumpMovement))]  //done?
-[RequireComponent(typeof(AttackMovement))] //done
-//[RequireComponent(typeof(TurnAround))]    //??
+[RequireComponent(typeof(WalkMovement))]
+[RequireComponent(typeof(JumpMovement))]
+[RequireComponent(typeof(AttackMovement))]
+[RequireComponent(typeof(TurnAround))]
 [RequireComponent(typeof(FloorDetector))]
 [RequireComponent(typeof(NewBehaviourScript))]
 
