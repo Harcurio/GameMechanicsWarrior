@@ -32,10 +32,7 @@ public class PlayerController : MonoBehaviour
         walkMovement =  new NewBehaviourScript(wm);
         //float velocity = 650f;
 
-        unsafe
-        {
-            *walkMovement.varList[2].varFloat = 650f; 
-        }
+        
         
         Debug.Log("speed of the variable");
         Debug.Log(wm.walkSpeed);
@@ -43,11 +40,7 @@ public class PlayerController : MonoBehaviour
 
 
         Debug.Log("list of variables");
-        unsafe
-        {
-            Debug.Log(*walkMovement.varList[2].varFloat);
-            Debug.Log(*walkMovement.varList[2].varFloat);
-        }
+        
   
 
 
@@ -76,31 +69,28 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl) && floorDetector.isTouchingFloor || CharacterControlDisabled && floorDetector.isTouchingFloor)
         {
-            unsafe
-            {
-                *walkMovement.varList[5].varFloat = 0;
-            }
+            
+             walkMovement.varList[5].valueFloat = 0;
+            
             
         }
 
         if((Input.GetButton("Left") && !Input.GetKey(KeyCode.LeftControl)) && 
             !CharacterControlDisabled)
         {
-            unsafe
-            {
-                *walkMovement.varList[5].varFloat = Input.GetAxis("Left");
-                walkMovement.movement.desiredWalkDirection = *walkMovement.varList[5].varFloat;
-            }
+            
+             walkMovement.varList[5].valueFloat = Input.GetAxis("Left");
+             walkMovement.movement.desiredWalkDirection = walkMovement.varList[5].valueFloat;
+            
             
             
         }
         else if(Input.GetButtonUp("Left"))
         {
-            unsafe
-            {
-                *walkMovement.varList[5].varFloat = 0;
-                walkMovement.movement.desiredWalkDirection = *walkMovement.varList[5].varFloat;
-            }
+            
+             walkMovement.varList[5].valueFloat = 0;
+             walkMovement.movement.desiredWalkDirection = walkMovement.varList[5].valueFloat;
+            
             
             
         }
@@ -108,21 +98,19 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetButton("Right") && !Input.GetKey(KeyCode.LeftControl)) && 
             !CharacterControlDisabled)
         {
-            unsafe
-            {
-                *walkMovement.varList[5].varFloat = Input.GetAxis("Right");
-                walkMovement.movement.desiredWalkDirection = *walkMovement.varList[5].varFloat;
-            }
+            
+             walkMovement.varList[5].valueFloat = Input.GetAxis("Right");
+             walkMovement.movement.desiredWalkDirection = walkMovement.varList[5].valueFloat;
+            
             
             
         }
         else if (Input.GetButtonUp("Right"))
         {
-            unsafe
-            {
-                *walkMovement.varList[5].varFloat = 0;
-                walkMovement.movement.desiredWalkDirection = *walkMovement.varList[5].varFloat;
-            }
+            
+             walkMovement.varList[5].valueFloat = 0;
+             walkMovement.movement.desiredWalkDirection = walkMovement.varList[5].valueFloat;
+            
             
             
         }

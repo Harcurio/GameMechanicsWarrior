@@ -83,17 +83,6 @@ public class NewBehaviourScript : MonoBehaviour {
         this.movement = movement;
 
 
-        //se va a eliminar este bloque por que la lista esta haciendo el mismo trabajo
-        /*
-        this.knockbackStrength = movement.knockbackStrength;
-        this.knockBackLength = movement.knockBackLength;
-        this.walkSpeed = movement.walkSpeed;
-        this.knockbackTimeCount = movement.knockbackTimeCount;
-        this.knockFromRight = movement.knockFromRight;
-        this.desiredWalkDirection = movement.desiredWalkDirection;
-        this.knockbackFinished = movement.knockbackFinished;
-
-        */
 
 
         Variable bar0 = new Variable("knockbackStrength", movement.knockbackStrength);
@@ -116,10 +105,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         Debug.Log("nombre de la variable: ");
         Debug.Log(varList[2].nameVariable);
-        unsafe
-        {
-            Debug.Log(*varList[2].varFloat);
-        }
+   
         
 
 
@@ -150,14 +136,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
 
 
-        /*
-        this.movement.knockBackLength = this.knockBackLength;
-        
-        this.movement.knockbackTimeCount = this.knockbackTimeCount;
-        this.movement.knockFromRight = this.knockFromRight;
-        this.movement.desiredWalkDirection = this.desiredWalkDirection;
-        this.movement.knockbackFinished = this.knockbackFinished;
-        */
+
     }
 
 
