@@ -32,6 +32,8 @@ public class NewBehaviourScript : MonoBehaviour {
     public WalkMovement movement;
     public JumpMovement jumpMovement;
     public NewRules theRules = new NewRules();
+
+    public bool newChanges = false;
     //public Variable bar;  //this will encapsulate all the other values
 
 
@@ -132,22 +134,31 @@ public class NewBehaviourScript : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
+        
+        //updatevariables();  
 
 
 
     }
 
+    
 
 
 
 
-
-    void updatevariables()
+    public void updatevariables()
     {
+        
+        if (newChanges)
+        {
+            Debug.Log(" se hicieron los cambios...");
+            movement.walkSpeed = varList[2].valueFloat;
 
 
+            newChanges = false;
+        }
 
     }
 

@@ -72,7 +72,7 @@ public class NewRules : MonoBehaviour
             if (rdm < toModify.valueFloat) // esta entrando siempre... por que random menor a valores
             {
 
-                toModify.valueFloat = 325f;
+                toModify.valueFloat = 30f;
 
 
 
@@ -89,9 +89,10 @@ public class NewRules : MonoBehaviour
 
         }
 
+        NewVar[2] = toModify;
 
         Debug.Log(NewVar[2].valueFloat);
-        return NewVar;
+        return NewVar; // I never modify the list that is returned how it will change!!!! 
     }
 
 
@@ -102,7 +103,7 @@ public class NewRules : MonoBehaviour
 
 
 
-
+    /* we can do a function that updates all the variables inside the walk each time there is a change...*/
 
 
 

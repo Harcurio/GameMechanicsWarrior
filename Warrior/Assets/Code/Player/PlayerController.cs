@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         wm = GetComponent<WalkMovement>();
         //walkMovement = GetComponent<NewBehaviourScript>();
-        wm.walkSpeed = 3f;
+        wm.walkSpeed = 650f;
 
         walkMovement =  new NewBehaviourScript(wm);
         //float velocity = 650f;
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         
         
         Debug.Log("speed of the variable");
-        Debug.Log(wm.walkSpeed);
+        Debug.Log(walkMovement.movement.walkSpeed);
 
 
 
@@ -44,9 +44,13 @@ public class PlayerController : MonoBehaviour
   
 
 
-        walkMovement.varList =  walkMovement.theRules.getRandomRule(walkMovement.varList);
+        walkMovement.varList =  walkMovement.theRules.getRandomRule(walkMovement.varList); // here
+        walkMovement.newChanges = true; // to make the changes
+        walkMovement.updatevariables();
+
         Debug.Log("speed of the variable afther new rule wink wink");
-        Debug.Log(wm.walkSpeed);
+        Debug.Log(walkMovement.movement.walkSpeed);
+        Debug.Log(walkMovement.varList[2].valueFloat);
 
 
 
@@ -61,6 +65,10 @@ public class PlayerController : MonoBehaviour
         myBody = GetComponent<Rigidbody2D>();
         dashMovement = GetComponent<DashMovement>();
         CharacterControlDisabled = false;
+
+
+        // las regl as se generan antes del update dado que en el update se deben mantener los valores..
+        // la segunda fase sera hacer todo con el update
     }
 
     protected void Update()
