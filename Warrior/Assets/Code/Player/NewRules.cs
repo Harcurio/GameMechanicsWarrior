@@ -10,7 +10,7 @@ using UnityEngine;
 
 
 
-public class NewRules : MonoBehaviour
+public class NewRules
 {
 
 
@@ -20,7 +20,8 @@ public class NewRules : MonoBehaviour
     // LISTA DE VARIABLES
     public List<Variable> varList = new List<Variable>();
 
-    public Conditions condition;
+    public Condition con;
+    public Effect eff;
 
 
 
@@ -108,58 +109,159 @@ public class NewRules : MonoBehaviour
 
 
 
+    public class Condition {
+
+        public int numberOfConditions = 5;
 
 
-    /* que es lo importante en condicion? revisar que una tecla se active o que el valor
-     * de una variable sea mayor o menor que su previo valor?
-     * 
-     * por ejemplo podemos generar una regla y ejecutarla cada que precionamos un boton 
-     * pero esta regla sólo sería temporal, dado que no se guardaría la regla para un uso futuro.
-     * 
-     * dado que tenemos que generar reglas manualmente cómo apolicamos  las condiciones??}
-     * 
-     * creo que en condiciones aun hay dudas hay que ver el video nuevamente para ver cómo se aplicaria
-     * aunque creo que no fue discutido en la junta.
-     * 
-     * tengo que pensar en cómo aplicar la condicion...
+        public enum conditions
+        {
+            biggerThan,
+            lessThan,
+            equalThan,
+            isTrue,
+            isFalse
+        }
 
-     */
+        public bool applyCondition(int var1, conditions x, int var2)
+        {
+            switch ((int)x)
+            {
+                case 0:
+                    if (var1 > var2)
+                        return true;
+                    break;
+                case 1:
+                    if (var1 < var2)
+                        return true;
+                    break;
+                case 2:
+                    if (var1 == var2)
+                        return true;
+                    break;
+                default:
+                    return false;
+            }
+            return false;
+        }
+
+        public bool applyCondition(float var1, conditions x, float var2)
+        {
+            switch ((int)x)
+            {
+                case 0:
+                    if (var1 > var2)
+                        return true;
+                    break;
+                case 1:
+                    if (var1 < var2)
+                        return true;
+                    break;
+                case 2:
+                    if (var1 == var2)
+                        return true;
+                    break;
+                default:
+                    return false;
+            }
+            return false;
+        }
+
+        public bool applyCondition(bool var1, conditions x)
+        {
+            switch ((int)x)
+            {
+                case 3:
+                    if (var1)
+                        return true;
+                    break;
+                case 4:
+                    if (!var1)
+                        return true;
+                    break;
+                default:
+                    return false;
+            }
+            return false;
+        }
+
+    }
 
 
 
 
     public class Effect
     {
-
-        public int addingValue()
+        public enum effects
         {
-            //call variable inside in the future
-            return 1;
+            add,
+            subtract,
+            multiply,
+            divide,
+            residue,
+            change
         }
 
-        public int restValue()
+        public int applyEffect(int var, effects x, int quantity )
         {
-
+            switch ((int)x)
+            {
+                case 0:
+                    return var + quantity;
+                case 1:
+                    return var - quantity;
+                case 2:
+                    return var * quantity;
+                case 3:
+                    if (quantity == 0)
+                        return -1;
+                    return var / quantity;
+                case 4:
+                    return var % quantity;
+                default:
+                    break;
+            }
             return -1;
         }
 
-        public int doubleValue()
+        public float applyEffect(float var, effects x, float quantity)
         {
-            return 2;
+            switch ((int)x)
+            {
+                case 0:
+                    return (float)(var + quantity);
+                case 1:
+                    return (float)(var - quantity);
+                case 2:
+                    return (float)(var * quantity);
+                case 3:
+                    if (quantity == 0)
+                        return -1;
+                    return (float)(var / quantity);
+                case 4:
+                    return (float)(var % quantity);
+                default:
+                    break;
+            }
+            return -1;
         }
 
-
-        public float addingValueF()
+        public bool applyEffect(bool var, effects x)
         {
-
-            return 0.5f;
+            if ((int)x == 5)
+            {
+                if (var)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
-        public float restValueF()
-        {
-
-            return -0.5f;
-        }
 
 
 
