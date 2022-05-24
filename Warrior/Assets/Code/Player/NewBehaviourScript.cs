@@ -105,8 +105,8 @@ public class NewBehaviourScript : MonoBehaviour {
         varList.Add(bar6);
 
 
-        Debug.Log("nombre de la variable: ");
-        Debug.Log(varList[2].nameVariable);
+        //Debug.Log("nombre de la variable: ");
+        //Debug.Log(varList[2].nameVariable);
    
         
 
@@ -127,7 +127,7 @@ public class NewBehaviourScript : MonoBehaviour {
     void Start () {
 
 
-        Debug.Log("entra al start de newBehaviour");
+        //Debug.Log("entra al start de newBehaviour");
 
 
 

@@ -25,9 +25,10 @@ public class PlayerController : MonoBehaviour
 
     protected void Awake()
     {
+        float speed = 650f;
         wm = GetComponent<WalkMovement>();
         //walkMovement = GetComponent<NewBehaviourScript>();
-        wm.walkSpeed = 650f;
+        wm.walkSpeed = speed;
 
         walkMovement =  new NewBehaviourScript(wm);
         //float velocity = 650f;
@@ -40,13 +41,20 @@ public class PlayerController : MonoBehaviour
 
 
         Debug.Log("list of variables");
-        
-  
+
+        // walkMovement.varList
 
 
-        walkMovement.varList =  walkMovement.theRules.getRandomRule(walkMovement.varList); // here
-        walkMovement.newChanges = true; // to make the changes
+        //Debug.Log();
+
+        // walkMovement.varList =  walkMovement.theRules.getRandomRule(walkMovement.varList); // here
+        //walkMovement.newChanges = true; // to make the changes
+
+        walkMovement.varList[2] = walkMovement.theRules.changeWalkSpeed(walkMovement.varList[2], speed, 651f);
+        walkMovement.newChanges = true;
         walkMovement.updatevariables();
+
+        
 
         Debug.Log("speed of the variable afther new rule wink wink");
         Debug.Log(walkMovement.movement.walkSpeed);

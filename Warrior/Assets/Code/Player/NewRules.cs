@@ -20,80 +20,81 @@ public class NewRules
     // LISTA DE VARIABLES
     public List<Variable> varList = new List<Variable>();
 
-    public Condition con;
-    public Effect eff;
+    public Condition con = new Condition();
+    public Effect eff = new Effect();
 
 
 
-    /*
-    public NewRules(List<Variable> varList)
+
+    public Variable changeWalkSpeed(Variable var, float actualSpeed, float value)
     {
+        Variable newVar = var;
+        if (con.applyCondition(var.valueFloat, Condition.conditions.lessThan, value))
+        {
+            newVar.valueFloat = eff.applyEffect(var.valueFloat,NewRules.Effect.effects.divide,4.0f );
+        }
+        return newVar;
+    }
+    
 
-        this.varList = varList;
-
-        //possible list with the new rules? ??
-
-
-    }*/
 
 
     public List<Variable> getRandomRule(List<Variable> varList)
     {
-
+        List<Variable> newVar = varList;
         Variable toModify;
-        List<Variable> NewVar = varList;
-        Conditions theCondition = new Conditions();
+        //Random rd = new Random();
+        int location = Random.Range(0, varList.Count);
 
-        int rd = Random.Range(0, varList.Count - 1);
-        float rdm;
-        toModify = varList[2];  // vamos a hardcodear esto para probar con movimiento rd seria el defauld
-        // se modifica una de esas variables  verificando sus condiciones.
-        rd = Random.Range(0, 100);
-        rdm = Random.Range(0f, 100f);
+        toModify = newVar[location];
+
         if (toModify.isINT())
         {
-
-
-            if (toModify.valueInt < rd)
+            //tbd the range...
+            if (con.applyCondition(toModify.valueInt,randomCondtion(),Random.Range(0,10)))
             {
-                toModify.valueInt = 325;
-
-                //more than 1 modifications?
-
-                // se hace update a la lista 
-                //NewVar[2] = toModify;
+                toModify.valueInt  = eff.applyEffect(toModify.valueInt,randomEffect(),Random.Range(0, 10));
             }
-
-
         }
 
         if (toModify.isFLOAT())
         {
-
-            if (rdm < toModify.valueFloat) // esta entrando siempre... por que random menor a valores
+            //the range
+            if (con.applyCondition(toModify.valueInt, randomCondtion(), Random.Range(0, 10)))
             {
-
-                toModify.valueFloat = 30f;
-
-
-
-                //more than 1 modifications?
-
-                // se hace update a la lista 
-                // NewVar[2] = toModify;
+                toModify.valueFloat = eff.applyEffect(toModify.valueInt, randomEffect(), Random.Range(0, 10));
             }
-
         }
 
         if (toModify.isBOOL())
         {
-
+           // if (con.applyCondition()) { } to be determ  
         }
 
-        NewVar[2] = toModify;
+        //con.applyCondition();
 
-        Debug.Log(NewVar[2].valueFloat);
-        return NewVar; // I never modify the list that is returned how it will change!!!! 
+        return newVar;
+    }
+
+    public Condition.conditions randomCondtion()
+    {
+        System.Array A = System.Enum.GetValues(typeof(Condition.conditions));
+        Condition.conditions x = (Condition.conditions)A.GetValue(Random.Range(0, 3));
+        return x;
+    }
+
+    public Condition.conditions randomCondtionBool()
+    {
+        System.Array A = System.Enum.GetValues(typeof(Condition.conditions));
+        Condition.conditions x = (Condition.conditions)A.GetValue(Random.Range(3, 5));
+        return x;
+    }
+
+    public Effect.effects randomEffect()
+    {
+        System.Array A = System.Enum.GetValues(typeof(Effect.effects));
+        Effect.effects x = (Effect.effects)A.GetValue(Random.Range(0, 5));
+        return x;
     }
 
 
@@ -112,6 +113,9 @@ public class NewRules
     public class Condition {
 
         public int numberOfConditions = 5;
+        public int conditionsNumbers = 3;
+        
+        /*we will start with the conditions made for numbers and at the end made for bools*/
 
 
         public enum conditions
@@ -120,8 +124,11 @@ public class NewRules
             lessThan,
             equalThan,
             isTrue,
-            isFalse
+            isFalse,
+            COUNT
         }
+
+        
 
         public bool applyCondition(int var1, conditions x, int var2)
         {
