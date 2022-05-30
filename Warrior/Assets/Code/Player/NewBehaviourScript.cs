@@ -4,22 +4,6 @@ using System.Reflection;
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(JumpMovement))]
-
-[RequireComponent(typeof(AttackTrigger))]
-[RequireComponent(typeof(CatchEdgeMovement))]
-[RequireComponent(typeof(DashMovement))]
-[RequireComponent(typeof(HealthManager))]
-[RequireComponent(typeof(HurtEnemyOnContact))]
-[RequireComponent(typeof(HurtPlayerOnContact))]
-[RequireComponent(typeof(KnockbackOnContact))]
-[RequireComponent(typeof(LifeManager))]
-[RequireComponent(typeof(PlayerController))]
-[RequireComponent(typeof(RotateToAliginWithFloor))]
-[RequireComponent(typeof(NewRules))]
-[RequireComponent(typeof(Variable))]
-
-
 
 
 
@@ -28,52 +12,34 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour {
 
-
+    //For variables to change.
     public WalkMovement movement;
     public JumpMovement jumpMovement;
+    public AttackMovement attackM;
+    public TurnAround tAround;
+    public FloorDetector floorD;  //need to check if this need to be done 
+    public Rigidbody2D myBody;
+
+
+    //For newBehaviours 
     public NewRules theRules = new NewRules();
-
     public bool newChanges = false;
-    //public Variable bar;  //this will encapsulate all the other values
-
-
     public List<Variable> varList = new List<Variable>();
 
 
-   
 
-
-    public int playerpoints { get; set; }
-
-
-    /*
-    public float knockbackStrength { get; set; }
-    public float knockBackLength { get; set; }
-    public float walkSpeed { get; set; }
-    public float knockbackTimeCount { get; set; }
-    public bool knockFromRight { get; set; }
-    public float desiredWalkDirection { get; set; }  //desiredWalkDirection
-    public bool knockbackFinished { get; set; }
-    */
-
-    //float walkSpeed = 50;
-    //float knockbackTimeCount
-    //bool knockFromRight
-    //float desiredWalkDirectio
-    //public bool knockbackFinished { get; set; }
 
 
     protected void Awake()
     {
-
-
-
-        //this.varList[2].valueInt = 650;
-
         movement = GetComponent<WalkMovement>();
         jumpMovement = GetComponent<JumpMovement>();
+        attackM = GetComponent<AttackMovement>();
+        tAround = GetComponent<TurnAround>();
+        floorD = GetComponent<FloorDetector>();
+        myBody = GetComponent<Rigidbody2D>();
 
-        //Rules made for the new behaviour?
+
        
 
 
@@ -85,7 +51,7 @@ public class NewBehaviourScript : MonoBehaviour {
         this.movement = movement;
 
 
-
+        //Variable bar14 = new Variable("", );
 
         Variable bar0 = new Variable("knockbackStrength", movement.knockbackStrength);
         Variable bar1 = new Variable("knockBackLength", movement.knockBackLength);
@@ -94,6 +60,15 @@ public class NewBehaviourScript : MonoBehaviour {
         Variable bar4 = new Variable("knockFromRight", movement.knockFromRight);
         Variable bar5 = new Variable("desiredWalkDirection", movement.desiredWalkDirection);
         Variable bar6 = new Variable("knockbackFinished", movement.knockbackFinished);
+        Variable bar7 = new Variable("canDoubleJump", jumpMovement.canDoubleJump);
+        Variable bar8 = new Variable("isAttacking", attackM.isAttacking);
+        Variable bar9 = new Variable("AttackMovementEnabled", attackM.AttackMovementEnabled);
+        Variable bar10 = new Variable("isFacingLeft", tAround.isFacingLeft );
+        Variable bar11 = new Variable("IsFacingRight", tAround.IsFacingRight);
+        Variable bar12 = new Variable("direction", tAround.direction);
+        Variable bar13 = new Variable("isTouchingFloor", floorD.isTouchingFloor);
+        //Variable bar14 = new Variable("distanceToFloor", floorD.distanceToFloor); for nullable values...
+        //Variable bar14 = new Variable("",myBody. );
 
 
         varList.Add(bar0);
@@ -165,51 +140,3 @@ public class NewBehaviourScript : MonoBehaviour {
 }
 
 
-
-//WM = GetComponent<WalkMovement>();
-/*
-        Debug.Log("hello");
-
- Type type = typeof(WalkMovement);
-
-
- PropertyInfo[] propertyInfo = type.GetProperties();
- MethodInfo[] methodInfo = type.GetMethods();
-
- //Debug.Log("List of properties of the class are: ");
-
-
- foreach (PropertyInfo pInfo in propertyInfo)
- {
-     Debug.Log(pInfo.Name);
-     //Debug.Log(pInfo.PropertyType);
-     //String x = pInfo.Name;
-
-    // Debug.Log(pInfo.Name);
-
-     //FieldInfo fld = typeof(JumpMovement).GetField(x);
-     if (pInfo.PropertyType == typeof(bool))
-     {
-         Debug.Log("si entra");
-         FieldInfo fld = typeof(JumpMovement).GetField(x);
-         //Debug.Log(fld.GetValue(null));
-     }
- }
-
-
-
-// FieldInfo field = type.GetField("FieldName", BindingFlags.NonPublic | BindingFlags.Instance);
-
- Debug.Log("List of methods of the class are: ");
- foreach (MethodInfo temp in methodInfo)
- {
-
-     Debug.Log(temp.Name);
- }
-
-
-
- //Debug.Log("Class: " + type.Name);
- //Debug.Log("Namespace: " + type.Namespace);
-
-*/

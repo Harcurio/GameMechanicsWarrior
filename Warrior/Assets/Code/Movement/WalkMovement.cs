@@ -48,7 +48,7 @@ public class WalkMovement : MonoBehaviour
 
     protected void Start()
     {
-        Debug.Log("start of walk movement");
+        
 
         startColor = spriteRenderer.color;
         knockbackFinished = true;

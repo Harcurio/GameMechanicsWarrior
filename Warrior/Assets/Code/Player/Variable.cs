@@ -21,9 +21,6 @@ public class Variable : MonoBehaviour {
     {
         this.nameVariable = nameVariable;
         this.isInt = true;
-
-        
- 
         this.valueInt = valueInt;
 
     }
@@ -32,7 +29,6 @@ public class Variable : MonoBehaviour {
     {
         this.nameVariable = nameVariable;
         this.isFloat = true;
-
         this.valueFloat = valueFloat;
 
     }
