@@ -23,14 +23,19 @@ public class PlayerController : MonoBehaviour
 
     public bool CharacterControlDisabled { get; set; }
 
+    Conditions con = new Conditions();
+
+
     protected void Awake()
     {
         float speed = 650f;
         wm = GetComponent<WalkMovement>();
+        jumpMovement = GetComponent<JumpMovement>();
+        floorDetector = GetComponent<FloorDetector>();
         //walkMovement = GetComponent<NewBehaviourScript>();
         wm.walkSpeed = speed;
 
-        walkMovement =  new NewBehaviourScript(wm);
+        walkMovement =  new NewBehaviourScript(wm, jumpMovement, floorDetector);
         //float velocity = 650f;
 
         
@@ -50,7 +55,7 @@ public class PlayerController : MonoBehaviour
         // walkMovement.varList =  walkMovement.theRules.getRandomRule(walkMovement.varList); // here
         //walkMovement.newChanges = true; // to make the changes
 
-        walkMovement.varList[2] = walkMovement.theRules.changeWalkSpeed(walkMovement.varList[2], speed, 651f);
+        walkMovement.varList[2] = walkMovement.theRules.changeWalkSpeed(walkMovement.varList[2],Conditions.conditions.lessThan, 651f, 4.0f);
         walkMovement.newChanges = true;
         walkMovement.updatevariables();
 
