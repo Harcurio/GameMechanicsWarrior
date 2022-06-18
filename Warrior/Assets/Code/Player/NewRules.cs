@@ -42,43 +42,49 @@ public class NewRules
 
 
 
-
-    public List<Variable> getRandomRule(List<Variable> varList)
+   
+    public List<Variable> getRandomRule(List<Variable> varList, int x1, int x2, int y1, int y2)
     {
         List<Variable> newVar = varList;
         Variable toModify;
-        //Random rd = new Random();
+        Random rd = new Random();
         int location = Random.Range(0, varList.Count);
-
         toModify = newVar[location];
+        Debug.Log(toModify.nameVariable);
 
         if (toModify.isINT())
         {
-            //tbd the range...
-            if (con.applyCondition(toModify.valueInt,randomCondtion(),Random.Range(0,10)))
+            if (con.applyCondition(toModify.valueInt,randomCondtion(),Random.Range(x1,x2)))
             {
-                toModify.valueInt  = eff.applyEffect(toModify.valueInt,randomEffect(),Random.Range(0, 10));
+                Debug.Log("Variable modified was Int");
+                toModify.valueInt  = eff.applyEffect(toModify.valueInt,randomEffect(),Random.Range(y1, y2));
+                //PRINT KEY to see what was modified
             }
         }
 
         if (toModify.isFLOAT())
         {
-            //the range
-            if (con.applyCondition(toModify.valueInt, randomCondtion(), Random.Range(0, 10)))
+            if (con.applyCondition(toModify.valueInt, randomCondtion(), Random.Range(x1, x2)))
             {
-                toModify.valueFloat = eff.applyEffect(toModify.valueInt, randomEffect(), Random.Range(0, 10));
+                Debug.Log("Variable modified was Float");
+                toModify.valueFloat = eff.applyEffect(toModify.valueInt, randomEffect(), Random.Range(y1, y2));
+                //PRINT KEY to see what was modified
             }
         }
 
         if (toModify.isBOOL())
         {
-           // if (con.applyCondition()) { } to be determ  
+            //for bool if is true is gonna be false and if is false is gonna be true.
+            Debug.Log("Variable modified was bool");
+            toModify.valueBool = !toModify.valueBool;
+              
         }
 
         //con.applyCondition();
-
+        newVar[location] = toModify;
         return newVar;
     }
+    
 
     public Conditions.conditions randomCondtion()
     {

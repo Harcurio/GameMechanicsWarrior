@@ -40,8 +40,8 @@ public class PlayerController : MonoBehaviour
 
         
         
-        Debug.Log("speed of the variable");
-        Debug.Log(walkMovement.movement.walkSpeed);
+        //Debug.Log("speed of the variable");
+        //Debug.Log(walkMovement.movement.walkSpeed);
 
 
 
@@ -52,12 +52,16 @@ public class PlayerController : MonoBehaviour
 
         //Debug.Log();
 
-        // walkMovement.varList =  walkMovement.theRules.getRandomRule(walkMovement.varList); // here
+        //walkMovement.varList =  
+            
+        walkMovement.theRules.getRandomRule(walkMovement.varList,5,10,3,9); // here
         //walkMovement.newChanges = true; // to make the changes
 
-        walkMovement.varList[2] = walkMovement.theRules.changeWalkSpeed(walkMovement.varList[2],Conditions.conditions.lessThan, 651f, 4.0f);
-        walkMovement.newChanges = true;
-        walkMovement.updatevariables();
+        //walkMovement.varList[2] = walkMovement.theRules.changeWalkSpeed(walkMovement.varList[2],Conditions.conditions.lessThan, 651f, 4.0f);
+        //aqui va el fill 
+        //walkMovement.fillDictWalkSpeed(walkMovement.varList[2], 5.0f, 10.0f, 3.0f, 9.0f);
+        //walkMovement.newChanges = true;
+        //walkMovement.updatevariables();
 
         
 

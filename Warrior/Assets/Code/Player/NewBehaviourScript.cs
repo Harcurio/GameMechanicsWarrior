@@ -1,6 +1,8 @@
 ﻿using System.Collections; 
 using System.Collections.Generic;
 using System.Reflection;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System;
 using UnityEngine;
 
@@ -13,7 +15,10 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour {
 
     //To hold all the possible changes in the variables
-    Hashtable hashTableVariables = new Hashtable();
+    //Hashtable hashTableVariables = new Hashtable();
+    public Dictionary<string, Variable> VariablesDict = new Dictionary<string, Variable>();
+    //to save the objects in the dictionary
+    public BinaryFormatter formatter;
 
     //For variables to change.
     public WalkMovement movement;
@@ -131,14 +136,78 @@ public class NewBehaviourScript : MonoBehaviour {
 
     }
 
-    //need to check type of variable also olverload this function.
-    public void fillHash(Variable var, float x1,float x2, float y1, float y2)
+    public Variable getRandomVariable()
     {
+        Variable toModify;
+        int location = UnityEngine.Random.Range(0, this.varList.Count);
+        toModify = this.varList[location];
+        return toModify;
+    }
 
+    //need to check type of variable also olverload this function.
+    //complexity (O) (Nx4)^2 aprox
+    public void fillDictWalkSpeed(Variable var, float x1,float x2, float y1, float y2)
+    {
+        Debug.Log("InsidefillhashwalkSpeed");
+        Variable newVar;
+        String key = "";
 
+        for (float i = x1; i < x2; i++)
+        {
+            for (float j = y1; j < y2; j++)
+            {
+                key = var.nameVariable+">"+i+"+"+j;
+                newVar = theRules.changeWalkSpeed(var, Conditions.conditions.biggerThan, i, Effect.effects.add, y1);
+                //hashTableVariables.Add(key,newVar);
+                this.VariablesDict.Add(key,newVar);
+                Debug.Log(key);
+            }
+
+        }
+
+        if (this.VariablesDict.ContainsKey("walkSpeed>5+7") == true)
+        {
+            Debug.Log("got the variable");
+        }
+        //place to save the dictionary
+        saveDict();
 
     }
 
+
+    public void saveDict()
+    {
+
+        try
+        {
+            FileStream writerFileStream = new FileStream("dictionary.dat", FileMode.Create, FileAccess.Write);
+            this.formatter.Serialize(writerFileStream, this.VariablesDict);
+            writerFileStream.Close();
+        }
+        catch (Exception)
+        {
+            Debug.Log("Unable to save dictionary");
+        }
+    }
+
+    public Dictionary<string,Variable> loadDict()
+    {
+        Dictionary<string, Variable> Dict = new Dictionary<string, Variable>();
+
+        try
+        {
+            FileStream readerFileStream = new FileStream("dictionary.dat", FileMode.Open, FileAccess.Read);
+            Dict = (Dictionary<string, Variable>)formatter.Deserialize(readerFileStream);
+            readerFileStream.Close();
+
+        }
+        catch (Exception)
+        {
+            Debug.Log("Unable to recovery dictionary");
+        }
+
+        return Dict;
+    }
 
 
     
