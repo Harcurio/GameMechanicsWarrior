@@ -33,6 +33,7 @@ public class NewBehaviourScript : MonoBehaviour {
     public NewRules theRules = new NewRules();
     public bool newChanges = false;
     public List<Variable> varList = new List<Variable>();
+    public List<Variable> oldVarList = new List<Variable>();
 
 
 
@@ -80,15 +81,15 @@ public class NewBehaviourScript : MonoBehaviour {
         //Variable bar14 = new Variable("",myBody. );
 
 
-        varList.Add(bar0);
-        varList.Add(bar1);
-        varList.Add(bar2);
-        varList.Add(bar3);
-        varList.Add(bar4);
-        varList.Add(bar5);
-        varList.Add(bar6);
-        varList.Add(bar7);
-        varList.Add(bar8);
+        this.varList.Add(bar0);
+        this.varList.Add(bar1);
+        this.varList.Add(bar2);
+        this.varList.Add(bar3);
+        this.varList.Add(bar4);
+        this.varList.Add(bar5);
+        this.varList.Add(bar6);
+        this.varList.Add(bar7);
+        this.varList.Add(bar8);
 
         //varList.Add(bar9);
         //varList.Add(bar10);
@@ -103,7 +104,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
 
 
-
+        this.oldVarList = this.varList;
 
     }
 
@@ -111,7 +112,10 @@ public class NewBehaviourScript : MonoBehaviour {
 
 
 
-
+    public void resetVariables()
+    {
+        this.varList = this.oldVarList;
+    }
 
 
 
