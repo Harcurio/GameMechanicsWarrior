@@ -167,7 +167,6 @@ C:\Users\Johor\Desktop\Faceless-master\Faceless-master\Warrior\obj\Debug\Assembl
 C:\Users\Johor\Desktop\Faceless-master\Faceless-master\Warrior\obj\Debug\Assembly-CSharp.dll
 C:\Users\Johor\Desktop\Faceless-master\Faceless-master\Warrior\obj\Debug\Assembly-CSharp.pdb
 <<<<<<< HEAD
-<<<<<<< HEAD
 C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
 C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\obj\Debug\Assembly-CSharp.dll
@@ -336,7 +335,5 @@ C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\Temp\bin\Debug\Unit
 C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
 C:\Users\Johor\Documents\GitHub\GameMechanicsWarrior\Warrior\obj\Debug\Assembly-CSharp.csproj.CopyComplete
-=======
->>>>>>> parent of af71274 (changes with pointers in variable class)
 =======
 >>>>>>> parent of af71274 (changes with pointers in variable class)

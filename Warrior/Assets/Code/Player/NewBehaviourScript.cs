@@ -22,7 +22,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
     //For variables to change.
     public WalkMovement movement;
-    public JumpMovement jumpMovement;
+    public JumpMovement jumpMovement;// = new JumpMovement();
     public AttackMovement attackM;
     public TurnAround tAround;
     public FloorDetector floorD;  //need to check if this need to be done 
@@ -58,6 +58,7 @@ public class NewBehaviourScript : MonoBehaviour {
     public NewBehaviourScript(WalkMovement movement, JumpMovement jumpMovement, FloorDetector floorD) {
 
         this.movement = movement;
+        this.jumpMovement = jumpMovement;
 
 
         //Variable bar14 = new Variable("", );
@@ -217,13 +218,21 @@ public class NewBehaviourScript : MonoBehaviour {
     
     public void updatevariables()
     {
-        
+
+      
+
         if (newChanges)
         {
             Debug.Log(" changes were done......");
+            movement.knockbackStrength = varList[0].valueFloat;
+            movement.knockBackLength = varList[1].valueFloat;
             movement.walkSpeed = varList[2].valueFloat;
-
-
+            movement.knockbackTimeCount = varList[3].valueFloat;
+            movement.knockFromRight = varList[4].valueBool;
+            movement.desiredWalkDirection = varList[5].valueFloat;
+            movement.knockbackFinished = varList[6].valueBool;
+            //jumpMovement.canDoubleJump = varList[7].valueBool;
+            //floorD.isTouchingFloor = varList[8].valueBool;
             newChanges = false;
         }
 
