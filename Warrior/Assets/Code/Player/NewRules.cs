@@ -47,43 +47,59 @@ public class NewRules
     
     public List<Variable> getNeighbors(List<Variable> varlist,  string key)
     {
-        List<Variable> newVar = varlist;
-        Variable toNeighbor = varlist[this.variablePlace];
-        if (this.randomGenerated)
+        List<Variable> newListVar = new List<Variable>();
+        int step = 1;
+        for(int index = 0; index < varList.Count; index++)
         {
-            
-            string[] words = key.Split('-');
-            //toModify.nameVariable + "-" + c +"-"+ ran +"-" + e + "-" + ran2 + "-";
-            Conditions.conditions cUsed = getConditionUsed(words[1]);
-            Effect.effects eUsed = getEffectUsed(words[4]);
-            
+            Variable toNeighbor = varlist[index];
+            if (this.randomGenerated)
+            {
 
-            if (toNeighbor.isINT())
-            {
-                if (con.applyCondition(toNeighbor.valueInt, cUsed, Random.Range(x1, x2)))
+                string[] words = key.Split('-');
+                //toModify.nameVariable + "-" + c +"-"+ ran +"-" + e + "-" + ran2 + "-";
+                Conditions.conditions cUsed = getConditionUsed(words[1]);
+                Effect.effects eUsed = getEffectUsed(words[3]);
+                int firstRange = int.Parse(words[2]);
+                int secondRange = int.Parse(words[4]);
+
+
+                if (toNeighbor.isINT())
                 {
-                    Debug.Log("Variable modified was Int");
-                    toNeighbor.valueInt = eff.applyEffect(toNeighbor.valueInt, randomEffect(), Random.Range(y1, y2));
-                    //PRINT KEY to see what was modified
+
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Variable newVar1 = toNeighbor;
+                        newVar1.valueInt = eff.applyEffect(newVar1.valueInt, xEffect(i), secondRange + step);
+                        Variable newVar2 = toNeighbor;
+                        newVar2.valueInt = eff.applyEffect(newVar2.valueInt, xEffect(i), secondRange - step);
+                        newListVar.Add(newVar1);
+                        newListVar.Add(newVar2);
+                    }
+
                 }
-            }
-        
-            if (toNeighbor.isFLOAT())
-            {
-                if (con.applyCondition(toNeighbor.valueInt, randomCondtion(), Random.Range(x1, x2)))
+
+                if (toNeighbor.isFLOAT())
                 {
-                    Debug.Log("Variable modified was Float");
-                    toNeighbor.valueFloat = eff.applyEffect(toNeighbor.valueInt, randomEffect(), Random.Range(y1, y2));
-                    //PRINT KEY to see what was modified
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Variable newVar1 = toNeighbor;
+                        newVar1.valueFloat = eff.applyEffect(newVar1.valueFloat, xEffect(i), secondRange + step);
+                        Variable newVar2 = toNeighbor;
+                        newVar2.valueFloat = eff.applyEffect(newVar2.valueFloat, xEffect(i), secondRange - step);
+                        newListVar.Add(newVar1);
+                        newListVar.Add(newVar2);
+                    }
                 }
+
             }
+
+
 
         }
+    
 
-        newVar[this.variablePlace] = toNeighbor;
 
-
-        return newVar;
+        return newListVar;
     }
         
 
@@ -166,6 +182,14 @@ public class NewRules
         Effect.effects x = (Effect.effects)A.GetValue(Random.Range(0, 5));
         return x;
     }
+
+    public Effect.effects xEffect(int e)
+    {
+        System.Array A = System.Enum.GetValues(typeof(Effect.effects));
+        Effect.effects x = (Effect.effects)A.GetValue(e);
+        return x;
+    }
+
 
     public Conditions.conditions getConditionUsed(string cond)
     {
