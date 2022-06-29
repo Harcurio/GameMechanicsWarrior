@@ -28,43 +28,39 @@ public class NewRules
     //public Condition con = new Condition();
     public Effect eff = new Effect();
 
-
-
-
-    public Variable changeWalkSpeed(Variable var,Conditions.conditions x , float valueToCompare,Effect.effects y,float change)
-    {
-        Variable newVar = var;
-        Debug.Log("value of the var");
-        Debug.Log(newVar.valueFloat);
-        if (con.applyCondition(var.valueFloat, x, valueToCompare))
-        {
-            newVar.valueFloat = eff.applyEffect(var.valueFloat,y,change );
-        }
-        return newVar;
-    }
-
     
     
     public List<Variable> getNeighbors(List<Variable> varlist,  string key)
     {
+        Debug.Log(this.variablePlace);
+        Debug.Log(varlist.Count);
         List<Variable> newListVar = new List<Variable>();
         int step = 1;
-        for(int index = 0; index < varList.Count; index++)
+        if (this.randomGenerated)
         {
-            Variable toNeighbor = varlist[index];
-            if (this.randomGenerated)
-            {
+            Debug.Log("flag was savedsdfsdf");
 
-                string[] words = key.Split('-');
+            for (int j = 0; j < varlist.Count; j++)
+            {
+                Debug.Log(j);
+           
+                Debug.Log(j);
+                Debug.Log("index value");
+                Variable toNeighbor = varlist[j];
+
+
                 //toModify.nameVariable + "-" + c +"-"+ ran +"-" + e + "-" + ran2 + "-";
-                Conditions.conditions cUsed = getConditionUsed(words[1]);
-                Effect.effects eUsed = getEffectUsed(words[3]);
-                int firstRange = int.Parse(words[2]);
-                int secondRange = int.Parse(words[4]);
+                //Conditions.conditions cUsed = getConditionUsed(words[1]);
+                //Effect.effects eUsed = getEffectUsed(words[3]);
+                
 
 
                 if (toNeighbor.isINT())
                 {
+                    string[] words = key.Split('-');
+                    int firstRange = int.Parse(words[2]);
+                    int secondRange = int.Parse(words[4]);
+                    Debug.Log("is Int");
 
                     for (int i = 0; i < 5; i++)
                     {
@@ -80,6 +76,10 @@ public class NewRules
 
                 if (toNeighbor.isFLOAT())
                 {
+                    string[] words = key.Split('-');
+                    int firstRange = int.Parse(words[2]);
+                    int secondRange = int.Parse(words[4]);
+                    Debug.Log("is float");
                     for (int i = 0; i < 5; i++)
                     {
                         Variable newVar1 = toNeighbor;
@@ -96,9 +96,10 @@ public class NewRules
 
 
         }
-    
 
 
+        Debug.Log("final count");
+        Debug.Log(newListVar.Count);
         return newListVar;
     }
         
@@ -117,7 +118,7 @@ public class NewRules
         this.key = "";
         this.randomGenerated = true;
         toModify = newVar[location];
-        Debug.Log(toModify.nameVariable);
+        
 
         int ran, ran2;
 

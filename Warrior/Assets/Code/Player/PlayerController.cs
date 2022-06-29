@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(WalkMovement))]
 [RequireComponent(typeof(JumpMovement))]
@@ -21,6 +22,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D myBody;
     DashMovement dashMovement;
 
+    List<Variable> newListVartoUpdate = new List<Variable>();
+    List<Variable> neighbourList = new List<Variable>();
+
+
     public bool CharacterControlDisabled { get; set; }
 
     Conditions con = new Conditions();
@@ -36,16 +41,17 @@ public class PlayerController : MonoBehaviour
         wm.walkSpeed = speed;
 
         walkMovement =  new NewBehaviourScript(wm, jumpMovement, floorDetector);
+        
         //float velocity = 650f;
 
-        
-        
+
+
         //Debug.Log("speed of the variable");
         //Debug.Log(walkMovement.movement.walkSpeed);
 
 
 
-        Debug.Log("list of variables");
+        //Debug.Log("list of variables");
 
         // walkMovement.varList
 
@@ -53,9 +59,15 @@ public class PlayerController : MonoBehaviour
         //Debug.Log();
 
         //walkMovement.varList =  
-            
-        walkMovement.theRules.getRandomRule(walkMovement.varList,5,10,3,9); // here
-        //walkMovement.newChanges = true; // to make the changes
+
+        newListVartoUpdate = walkMovement.theRules.getRandomRule(walkMovement.varList,5,10,3,9); // here need to catch the new rules
+        
+        walkMovement.newChanges = true; // to make the changes
+        neighbourList = walkMovement.theRules.getNeighbors(walkMovement.varList, walkMovement.theRules.key);
+        Debug.Log("rules updated quantity");
+        Debug.Log(newListVartoUpdate.Count);
+        Debug.Log("neighbours quantity");
+        Debug.Log(neighbourList.Count);
 
         //walkMovement.varList[2] = walkMovement.theRules.changeWalkSpeed(walkMovement.varList[2],Conditions.conditions.lessThan, 651f, 4.0f);
         //aqui va el fill 
@@ -63,11 +75,11 @@ public class PlayerController : MonoBehaviour
         //walkMovement.newChanges = true;
         //walkMovement.updatevariables();
 
-        
 
-        Debug.Log("speed of the variable afther new rule wink wink");
-        Debug.Log(walkMovement.movement.walkSpeed);
-        Debug.Log(walkMovement.varList[2].valueFloat);
+
+        //Debug.Log("speed of the variable afther new rule wink wink");
+        //Debug.Log(walkMovement.movement.walkSpeed);
+        //Debug.Log(walkMovement.varList[2].valueFloat);
 
 
 

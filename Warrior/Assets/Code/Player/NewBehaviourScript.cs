@@ -111,35 +111,11 @@ public class NewBehaviourScript : MonoBehaviour {
 
 
 
-
-
     public void resetVariables()
     {
         this.varList = this.oldVarList;
     }
 
-
-
-
-        // Use this for initialization
-    void Start () {
-
-
-        //Debug.Log("entra al start de newBehaviour");
-
-
-
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        
-        //updatevariables();  
-
-
-
-    }
 
     public Variable getRandomVariable()
     {
@@ -153,27 +129,12 @@ public class NewBehaviourScript : MonoBehaviour {
     //complexity (O) (Nx4)^2 aprox
     public void fillDictWalkSpeed(Variable var, float x1,float x2, float y1, float y2)
     {
-        Debug.Log("InsidefillhashwalkSpeed");
+        
         Variable newVar;
         String key = "";
 
-        for (float i = x1; i < x2; i++)
-        {
-            for (float j = y1; j < y2; j++)
-            {
-                key = var.nameVariable+">"+i+"+"+j;
-                newVar = theRules.changeWalkSpeed(var, Conditions.conditions.biggerThan, i, Effect.effects.add, y1);
-                //hashTableVariables.Add(key,newVar);
-                this.VariablesDict.Add(key,newVar);
-                Debug.Log(key);
-            }
+       
 
-        }
-
-        if (this.VariablesDict.ContainsKey("walkSpeed>5+7") == true)
-        {
-            Debug.Log("got the variable");
-        }
         //place to save the dictionary
         saveDict();
 
