@@ -28,7 +28,7 @@ public class AttackMovement : MonoBehaviour
 
     public bool isAttacking { get; private set; }
     public bool AttackMovementEnabled { get; set; }
-    public int attackCount = 0;
+    public int attackCount = 0;   //ONLY ONE VARIABLE CAN BE INTRODUCED 
 
     private float timeLeft;
     private float attackCooldown = 0.45f;

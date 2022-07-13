@@ -21,145 +21,150 @@ public class NewRules
     public List<Variable> varList = new List<Variable>();
     public Conditions con = new Conditions();
     public int variablePlace;
-    public string key;
+    public int than;
+    public int value;
     public bool randomGenerated = false;
-     
+
 
     //public Condition con = new Condition();
     public Effect eff = new Effect();
 
     
     
-    public List<Variable> getNeighbors(List<Variable> varlist,  string key)
+    public List<Rules> getNeighbors(Rules generated)
     {
-        Debug.Log(this.variablePlace);
-        Debug.Log(varlist.Count);
-        List<Variable> newListVar = new List<Variable>();
+        //Debug.Log(this.variablePlace);
+        //Debug.Log(varlist.Count);
+        List<Rules> newListRules = new List<Rules>();
+       
         int step = 1;
         if (this.randomGenerated)
         {
-            Debug.Log("flag was savedsdfsdf");
-
-            for (int j = 0; j < varlist.Count; j++)
+            for (int j = 0; j < 3; j++)  //setValues(string name, string comparator, string valueComparator, string effect, string valueEffect)
             {
-                Debug.Log(j);
-           
-                Debug.Log(j);
-                Debug.Log("index value");
-                Variable toNeighbor = varlist[j];
-
-
-                //toModify.nameVariable + "-" + c +"-"+ ran +"-" + e + "-" + ran2 + "-";
-                //Conditions.conditions cUsed = getConditionUsed(words[1]);
-                //Effect.effects eUsed = getEffectUsed(words[3]);
-                
-
-
-                if (toNeighbor.isINT())
+                Rules newNeighbor = new Rules();
+                newNeighbor.setValues(generated.name, xCondition(j).ToString(), generated.valueComparator, generated.effect, generated.valueEffect);
+                //generated.setComparator(xCondition(j).ToString());
+                for(int i = 0; i < 5; i++)
                 {
-                    string[] words = key.Split('-');
-                    int firstRange = int.Parse(words[2]);
-                    int secondRange = int.Parse(words[4]);
-                    Debug.Log("is Int");
+                    float valueComparator = float.Parse(generated.valueComparator);
+                    float valueEffect = float.Parse(generated.valueEffect);
+                    float vcm = valueComparator - (float)step;  // value comparator minus
+                    float vcp = valueComparator + (float)step; // value comparator plus
+                    float vem = valueEffect - (float)step;
+                    float vep = valueEffect + (float)step;
 
-                    for (int i = 0; i < 5; i++)
-                    {
-                        Variable newVar1 = toNeighbor;
-                        newVar1.valueInt = eff.applyEffect(newVar1.valueInt, xEffect(i), secondRange + step);
-                        Variable newVar2 = toNeighbor;
-                        newVar2.valueInt = eff.applyEffect(newVar2.valueInt, xEffect(i), secondRange - step);
-                        newListVar.Add(newVar1);
-                        newListVar.Add(newVar2);
-                    }
+                    Rules newNeighbor1 = new Rules();
+                    Rules newNeighbor2 = new Rules();
+                    Rules newNeighbor3 = new Rules();
+                    Rules newNeighbor4 = new Rules();
+                    Rules newNeighbor5 = new Rules();
+                    Rules newNeighbor6 = new Rules();
+                    Rules newNeighbor7 = new Rules();
+                    Rules newNeighbor8 = new Rules();
+                    Rules newNeighbor9 = new Rules();
+
+
+                    newNeighbor1.setValues(generated.name, xCondition(j).ToString(), generated.valueComparator, xEffect(i).ToString(), generated.valueEffect);
+                    newNeighbor2.setValues(generated.name, xCondition(j).ToString(), generated.valueComparator, xEffect(i).ToString(), vem.ToString());
+                    newNeighbor3.setValues(generated.name, xCondition(j).ToString(), generated.valueComparator, xEffect(i).ToString(), vep.ToString());
+                    newNeighbor4.setValues(generated.name, xCondition(j).ToString(), vcm.ToString(), xEffect(i).ToString(), generated.valueEffect);
+                    newNeighbor5.setValues(generated.name, xCondition(j).ToString(), vcm.ToString(), xEffect(i).ToString(), vem.ToString());
+                    newNeighbor6.setValues(generated.name, xCondition(j).ToString(), vcm.ToString(), xEffect(i).ToString(), vep.ToString());
+                    newNeighbor7.setValues(generated.name, xCondition(j).ToString(), vcp.ToString(), xEffect(i).ToString(), generated.valueEffect);
+                    newNeighbor8.setValues(generated.name, xCondition(j).ToString(), vcp.ToString(), xEffect(i).ToString(), vem.ToString());
+                    newNeighbor9.setValues(generated.name, xCondition(j).ToString(), vcp.ToString(), xEffect(i).ToString(), vep.ToString());
+
+
+                    newListRules.Add(newNeighbor1);
+                    newListRules.Add(newNeighbor2);
+                    newListRules.Add(newNeighbor3);
+                    newListRules.Add(newNeighbor4);
+                    newListRules.Add(newNeighbor5);
+                    newListRules.Add(newNeighbor6);
+                    newListRules.Add(newNeighbor7);
+                    newListRules.Add(newNeighbor8);
+                    newListRules.Add(newNeighbor9);
+
+
+                    //  NEED TO SEARCH AND DELETE THE ORIGINAL FUNCTION....
+
+                    /*
+                    Variable newVar1 = new Variable(toNeighbor.nameVariable, toNeighbor.valueFloat);
+                    newVar1.valueInt = eff.applyEffect(newVar1.valueInt, xEffect(i), secondRange + step);
+                    Variable newVar2 = new Variable(toNeighbor.nameVariable, toNeighbor.valueFloat);
+                    newVar2.valueInt = eff.applyEffect(newVar2.valueInt, xEffect(i), secondRange - step);
+                    newListVar.Add(newVar1);
+                    newListVar.Add(newVar2);
+                    */
 
                 }
-
-                if (toNeighbor.isFLOAT())
-                {
-                    string[] words = key.Split('-');
-                    int firstRange = int.Parse(words[2]);
-                    int secondRange = int.Parse(words[4]);
-                    Debug.Log("is float");
-                    for (int i = 0; i < 5; i++)
-                    {
-                        Variable newVar1 = toNeighbor;
-                        newVar1.valueFloat = eff.applyEffect(newVar1.valueFloat, xEffect(i), secondRange + step);
-                        Variable newVar2 = toNeighbor;
-                        newVar2.valueFloat = eff.applyEffect(newVar2.valueFloat, xEffect(i), secondRange - step);
-                        newListVar.Add(newVar1);
-                        newListVar.Add(newVar2);
-                    }
-                }
-
             }
-
-
-
         }
 
 
-        Debug.Log("final count");
-        Debug.Log(newListVar.Count);
-        return newListVar;
+        Debug.Log("neighborsDone");
+        printList(newListRules);
+        return newListRules;
     }
-        
 
-    public List<Variable> getRandomRule(List<Variable> varList, int x1, int x2, int y1, int y2)
+    public void printList(List<Rules> varList)
+    {
+        for (int i = 0; i < varList.Count; i++)
+        {
+            Debug.Log(varList[i].name + varList[i].comparator + varList[i].valueComparator + varList[i].effect + varList[i].valueEffect);
+        }
+        Debug.Log("endGetNeigbors List");
+    }
+
+
+    public Rules getRandomRule(List<Variable> varList, int x1, int x2, int y1, int y2)
     {
         List<Variable> newVar = varList;
         Variable toModify;
-        
+        Rules generatedRule = new Rules();
+
+
+
         Conditions.conditions c = randomCondtion();
         Effect.effects e = randomEffect();
 
         Random rd = new Random();
         int location = Random.Range(0, varList.Count);
         this.variablePlace = location;
-        this.key = "";
-        this.randomGenerated = true;
-        toModify = newVar[location];
-        
 
-        int ran, ran2;
+        
+        toModify = newVar[location];
+
 
         if (toModify.isINT())
         {
-            ran = Random.Range(x1, x2);
-            if (con.applyCondition(toModify.valueInt,c,ran))
-            {
-                Debug.Log("Variable modified was Int");
-                ran2 = Random.Range(y1, y2);
-                toModify.valueInt  = eff.applyEffect(toModify.valueInt,e,ran2);
-                this.key = this.key + toModify.nameVariable + "-" + c +"-"+ ran +"-" + e + "-" + ran2 + "-";
-                Debug.Log(this.key);
-
-            }
+            this.than = Random.Range(x1, x2);
+            this.value = Random.Range(y1, y2);
+            generatedRule.setValues(toModify.nameVariable, c.ToString(),this.than.ToString(),e.ToString(),this.value.ToString());
+            this.randomGenerated = true;
         }
 
         if (toModify.isFLOAT())
         {
-            ran = Random.Range(x1, x2);
-            if (con.applyCondition(toModify.valueInt, c, ran))
-            {
-                ran2 = Random.Range(y1, y2);
-                Debug.Log("Variable modified was Float");
-                toModify.valueFloat = eff.applyEffect(toModify.valueInt, e, ran2);
-                this.key = this.key + toModify.nameVariable + "-" + c + "-" + ran + "-" + e + "-" + ran2 + "-";
-                Debug.Log(this.key);
-            }
+            this.than = Random.Range(x1, x2);
+            this.value = Random.Range(y1, y2);
+            generatedRule.setValues(toModify.nameVariable, c.ToString(), this.than.ToString(), e.ToString(), this.value.ToString());
+            this.randomGenerated = true;
         }
 
         if (toModify.isBOOL())
         {
             //for bool if is true is gonna be false and if is false is gonna be true.
             Debug.Log("Variable modified was bool");
-            toModify.valueBool = !toModify.valueBool;
+            //toModify.valueBool = !toModify.valueBool;
               
         }
 
         //con.applyCondition();
-        newVar[location] = toModify;
-        return newVar;
+        //newVar[this.variablePlace] = toModify;
+        //Debug.Log(this.key);
+        return generatedRule;
     }
     
 
@@ -191,7 +196,12 @@ public class NewRules
         return x;
     }
 
-
+    public Conditions.conditions xCondition(int e)
+    {
+        System.Array A = System.Enum.GetValues(typeof(Effect.effects));
+        Conditions.conditions x = (Conditions.conditions)A.GetValue(e);
+        return x;
+    }
     public Conditions.conditions getConditionUsed(string cond)
     {
         switch (cond)

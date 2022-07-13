@@ -22,8 +22,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D myBody;
     DashMovement dashMovement;
 
-    List<Variable> newListVartoUpdate = new List<Variable>();
+    List<Variable> currentList = new List<Variable>();
+    Variable variableModified;
     List<Variable> neighbourList = new List<Variable>();
+    //Variable current;
 
 
     public bool CharacterControlDisabled { get; set; }
@@ -39,9 +41,9 @@ public class PlayerController : MonoBehaviour
         floorDetector = GetComponent<FloorDetector>();
         //walkMovement = GetComponent<NewBehaviourScript>();
         wm.walkSpeed = speed;
-
+        Rules generatedRule;
         walkMovement =  new NewBehaviourScript(wm, jumpMovement, floorDetector);
-        
+
         //float velocity = 650f;
 
 
@@ -53,39 +55,39 @@ public class PlayerController : MonoBehaviour
 
         //Debug.Log("list of variables");
 
-        // walkMovement.varList
+
+        generatedRule = walkMovement.theRules.getRandomRule(walkMovement.varList,650,651,3,9); // here need to catch the new rules
+
+        if (generatedRule.used)
+        {
+            Debug.Log(generatedRule.name);
+            Debug.Log(generatedRule.comparator);
+            Debug.Log(generatedRule.valueComparator);
+            Debug.Log(generatedRule.effect);
+            Debug.Log(generatedRule.valueEffect);
+        }
+
+        walkMovement.theRules.getNeighbors(generatedRule);
+
+        /*
+        //walkMovement.newChanges = true; // to make the changes  on the game
+        //Variable current = currentList[walkMovement.theRules.variablePlace];
+        Variable output = currentList[walkMovement.theRules.variablePlace];
+        //Debug.Log(output.nameVariable);
 
 
-        //Debug.Log();
+        if (Object.Equals(output,"null"))
+        {
+            Debug.Log("why is null?");
+        }
+        //Variable noise = null;
 
-        //walkMovement.varList =  
+        output = SearchBased(currentList);
+        //Debug.Log(output.nameVariable);
 
-        newListVartoUpdate = walkMovement.theRules.getRandomRule(walkMovement.varList,5,10,3,9); // here need to catch the new rules
-        
-        walkMovement.newChanges = true; // to make the changes
-        neighbourList = walkMovement.theRules.getNeighbors(walkMovement.varList, walkMovement.theRules.key);
         Debug.Log("rules updated quantity");
-        Debug.Log(newListVartoUpdate.Count);
-        Debug.Log("neighbours quantity");
-        Debug.Log(neighbourList.Count);
-
-        //walkMovement.varList[2] = walkMovement.theRules.changeWalkSpeed(walkMovement.varList[2],Conditions.conditions.lessThan, 651f, 4.0f);
-        //aqui va el fill 
-        //walkMovement.fillDictWalkSpeed(walkMovement.varList[2], 5.0f, 10.0f, 3.0f, 9.0f);
-        //walkMovement.newChanges = true;
-        //walkMovement.updatevariables();
-
-
-
-        //Debug.Log("speed of the variable afther new rule wink wink");
-        //Debug.Log(walkMovement.movement.walkSpeed);
-        //Debug.Log(walkMovement.varList[2].valueFloat);
-
-
-
-
-
-
+        //Debug.Log(newListVartoUpdate.Count);
+        
 
 
         jumpMovement = GetComponent<JumpMovement>();
@@ -95,9 +97,106 @@ public class PlayerController : MonoBehaviour
         dashMovement = GetComponent<DashMovement>();
         CharacterControlDisabled = false;
 
-
+        */
         // las regl as se generan antes del update dado que en el update se deben mantener los valores..
         // la segunda fase sera hacer todo con el update
+    }
+
+    public Variable SearchBased(List<Variable> varList )
+    {
+
+        Variable current = varList[walkMovement.theRules.variablePlace];
+        Variable oldcurrent = null;
+        //neighbourList = walkMovement.theRules.getNeighbors(current, walkMovement.varList);  //walkMovement.theRules.getNeighbors(walkMovement.varList[walkMovement.theRules.variablePlace], walkMovement.varList); //revisar las listas de walkmovement y validar que fue utilizada getRandom
+
+
+        //printList(neighbourList); Debug.Log("END neighborList"+ neighbourList.Count);
+
+        Debug.Log(current.nameVariable);
+        Debug.Log(current.valueFloat);
+        int count = 0;
+        bool flag = true;
+        do
+        {
+
+
+            
+
+            //Debug.Log("after neighbors " + current.valueFloat);
+            Debug.Log("neighbours quantity");
+            Debug.Log(neighbourList.Count);
+            for (int i = 0; i < neighbourList.Count; i++)
+            {
+
+                Debug.Log("Fitness neighbor: "+ fitness(neighbourList[i]));
+                Debug.Log("Fitness Current"+ fitness(current));
+                if (fitness(neighbourList[i]) > fitness(current))
+                {
+                    Debug.Log("entro a la fitness");
+                    oldcurrent = current;
+                    current = neighbourList[i];
+                }
+
+
+            }
+
+            if (Object.Equals(current, oldcurrent)) //it was is doing the null from Unity here.... 
+            {
+                flag = false;
+            }
+
+            Debug.Log(current.valueFloat + "_THIS IS THE VALUE to SEND ");
+            //neighbourList = walkMovement.theRules.getNeighbors(current, neighbourList);
+
+            if (count == 2)
+            {
+                flag = false;
+                Debug.Log("out for time");
+            }
+
+            count += 1;
+        } while (flag);
+
+        Debug.Log("counter");
+        Debug.Log(count);
+        return current;
+    }
+
+    
+
+    public int fitness(Variable x)
+    {
+        int value = 0;
+
+        if (x.nameVariable == "walkSpeed")
+        {
+            value += 1;
+        }
+
+        if (x.valueInt > 50)
+        {
+            value += 1;
+        }
+
+        if (x.valueFloat > 1300)
+        {
+            value += 1;
+        }
+
+        if (x.valueFloat < 2500)
+        {
+            value += 1;
+        }
+
+        return value;
+    }
+
+    public void printList(List<Variable> varList)
+    {
+        for (int i = 0; i < varList.Count; i++)
+        {
+            Debug.Log(varList[i].valueFloat);
+        }
     }
 
     protected void Update()

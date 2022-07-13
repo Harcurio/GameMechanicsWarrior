@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Variable : MonoBehaviour {
+public class Variable
+{
 
 
     bool isInt = false;
     bool isFloat = false;
     bool isBool = false;
+  
 
 
     public int valueInt { get; set; }
@@ -22,6 +24,7 @@ public class Variable : MonoBehaviour {
         this.nameVariable = nameVariable;
         this.isInt = true;
         this.valueInt = valueInt;
+    
 
     }
 
@@ -30,6 +33,7 @@ public class Variable : MonoBehaviour {
         this.nameVariable = nameVariable;
         this.isFloat = true;
         this.valueFloat = valueFloat;
+       
 
     }
 
@@ -37,8 +41,8 @@ public class Variable : MonoBehaviour {
     {
         this.nameVariable = nameVariable;
         this.isBool = true;
-
         this.valueBool = Valuebool;
+        
 
     }
 

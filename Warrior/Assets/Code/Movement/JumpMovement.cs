@@ -6,7 +6,7 @@ using UnityEngine;
 public class JumpMovement : MonoBehaviour
 {
     [SerializeField]
-    private float jumpSpeed = 7f;
+    public float jumpSpeed = 7f;
 
     [SerializeField]
     private float secondJumpSpeed = 10f;

@@ -33,7 +33,7 @@ public class Effect
             default:
                 break;
         }
-        return -1;
+        return -3;
     }
 
     public float applyEffect(float var, effects x, float quantity)
@@ -48,14 +48,14 @@ public class Effect
                 return (float)(var * quantity);
             case 3:
                 if (quantity == 0)
-                    return -1;
+                    return -3;
                 return (float)(var / quantity);
             case 4:
                 return (float)(var % quantity);
             default:
                 break;
         }
-        return -1;
+        return -3;
     }
 
     public bool applyEffect(bool var, effects x)

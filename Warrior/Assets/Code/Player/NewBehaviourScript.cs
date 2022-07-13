@@ -22,9 +22,9 @@ public class NewBehaviourScript : MonoBehaviour {
 
     //For variables to change.
     public WalkMovement movement;
-    public JumpMovement jumpMovement;// = new JumpMovement();
-    public AttackMovement attackM;
-    public TurnAround tAround;
+    public JumpMovement jumpMovement;// ONE VARIABLE
+    public AttackMovement attackM; //ONLY ONE VARIABLE
+    public TurnAround tAround; // TWO BOOLEANS
     public FloorDetector floorD;  //need to check if this need to be done 
     public Rigidbody2D myBody;
 
@@ -70,33 +70,33 @@ public class NewBehaviourScript : MonoBehaviour {
         Variable bar4 = new Variable("knockFromRight", movement.knockFromRight);
         Variable bar5 = new Variable("desiredWalkDirection", movement.desiredWalkDirection);
         Variable bar6 = new Variable("knockbackFinished", movement.knockbackFinished);
-        Variable bar7 = new Variable("canDoubleJump", jumpMovement.canDoubleJump);
-        Variable bar8 = new Variable("isTouchingFloor", floorD.isTouchingFloor);
-        
+        Variable bar7 = new Variable("jumpSpeed", jumpMovement.jumpSpeed);
+
+        //Variable bar8 = new Variable("isTouchingFloor", floorD.isTouchingFloor);
         //Variable bar9 = new Variable("AttackMovementEnabled", attackM.AttackMovementEnabled);
         //Variable bar10 = new Variable("isFacingLeft", tAround.isFacingLeft );
         //Variable bar11 = new Variable("IsFacingRight", tAround.IsFacingRight);
         //Variable bar12 = new Variable("direction", tAround.direction);
         //Variable bar13 = new Variable("isAttacking", attackM.isAttacking);
-        //Variable bar14 = new Variable("distanceToFloor", floorD.distanceToFloor); for nullable values...
+        //Variable bar14 = new Variable("distanceToFloor", floorD.distanceToFloor); //for nullable values...??
         //Variable bar14 = new Variable("",myBody. );
 
-
+        /*
         this.varList.Add(bar0);
-        this.varList.Add(bar1);
+        this.varList.Add(bar1);*/
         this.varList.Add(bar2);
-        this.varList.Add(bar3);
+        /*this.varList.Add(bar3);
         this.varList.Add(bar4);
         this.varList.Add(bar5);
         this.varList.Add(bar6);
-        this.varList.Add(bar7);
-        this.varList.Add(bar8);
+        this.varList.Add(bar7);*/
 
-        //varList.Add(bar9);
-        //varList.Add(bar10);
-        //varList.Add(bar11);
-        //varList.Add(bar12);
-        //varList.Add(bar13);
+        //this.varList.Add(bar8);
+        //this.varList.Add(bar9);
+        //this.varList.Add(bar10);
+        //this.varList.Add(bar11);
+        //this.varList.Add(bar12);
+        //this.varList.Add(bar13);
         //varList.Add(bar14);
 
 
@@ -177,7 +177,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
 
     
-    public void updatevariables()
+    public void updatevariables() //to have an effect in the game 
     {
 
       
