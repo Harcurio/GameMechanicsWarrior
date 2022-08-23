@@ -76,7 +76,7 @@ public class NewRules
                     newNeighbor9.setValues(generated.name, xCondition(j).ToString(), vcp.ToString(), xEffect(i).ToString(), vep.ToString());
 
 
-                    newListRules.Add(newNeighbor1);
+
                     newListRules.Add(newNeighbor2);
                     newListRules.Add(newNeighbor3);
                     newListRules.Add(newNeighbor4);
@@ -84,27 +84,27 @@ public class NewRules
                     newListRules.Add(newNeighbor6);
                     newListRules.Add(newNeighbor7);
                     newListRules.Add(newNeighbor8);
-                    newListRules.Add(newNeighbor9);
-
-
-                    //  NEED TO SEARCH AND DELETE THE ORIGINAL FUNCTION....
-
-                    /*
-                    Variable newVar1 = new Variable(toNeighbor.nameVariable, toNeighbor.valueFloat);
-                    newVar1.valueInt = eff.applyEffect(newVar1.valueInt, xEffect(i), secondRange + step);
-                    Variable newVar2 = new Variable(toNeighbor.nameVariable, toNeighbor.valueFloat);
-                    newVar2.valueInt = eff.applyEffect(newVar2.valueInt, xEffect(i), secondRange - step);
-                    newListVar.Add(newVar1);
-                    newListVar.Add(newVar2);
-                    */
+                    newListRules.Add(newNeighbor9); 
 
                 }
             }
+            
+            for (int i = 0; i < newListRules.Count; i++)
+            {
+                if (newListRules[i].valueComparator == generated.valueComparator & newListRules[i].valueEffect == generated.valueEffect)
+                {
+                    if (newListRules[i].comparator == generated.comparator & newListRules[i].effect == generated.effect)
+                    {
+                        newListRules.RemoveAt(i);
+                    }
+                }
+            }
+           
         }
 
 
         Debug.Log("neighborsDone");
-        printList(newListRules);
+        //printList(newListRules);
         return newListRules;
     }
 
@@ -112,7 +112,7 @@ public class NewRules
     {
         for (int i = 0; i < varList.Count; i++)
         {
-            Debug.Log(varList[i].name + varList[i].comparator + varList[i].valueComparator + varList[i].effect + varList[i].valueEffect);
+            Debug.Log(varList[i].name +" "+ varList[i].comparator + " " + varList[i].valueComparator + " " + varList[i].effect + " " + varList[i].valueEffect);
         }
         Debug.Log("endGetNeigbors List");
     }
